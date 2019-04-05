@@ -209,7 +209,7 @@ int main() {
 
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
-		int size;
+		int size = 0;
 		if (!fscanf(inputFile, "%d", &size)) {
 			break;
 		}
@@ -225,11 +225,12 @@ int main() {
 			//curFill++;
 		}
 
-		mergeSort(inputArr, 0, length - 1);
+		//mergeSort(inputArr, 0, length - 1);
+		mergeSort(inputArr, 0, size - 1);
 
-		for (i = 0; i < length; i++) {
+		for (i = 0; i < size; i++) {
 			int printNumber = inputArr[i];
-			if (i == length - 1) {
+			if (i == size - 1) {
 				fprintf(outputFile, "%d", printNumber);
 				if (j < numOfLines - 1) {
 					fprintf(outputFile, "\n");
@@ -239,7 +240,7 @@ int main() {
 				fprintf(outputFile, "%d ", printNumber);
 			}
 		}
-		curFill = 0;
+		//curFill = 0;
 		free(inputArr);
 	}
 
