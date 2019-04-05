@@ -209,6 +209,7 @@ int main()
 
 	numRows = getNumLinesInFile();
 
+	printf("about to open data.txt in main.\n");
 	FILE *fp;
 	fp = fopen("data.txt", "r");
 
