@@ -181,7 +181,7 @@ int main() {
 	int numOfLines = 0;
 	FILE *inputFile;
 	int *inputArr;
-	int curFill = 0;
+	int index = 0;
 
 	// open file to get num of lines
 	inputFile = fopen("data.txt", "r");
@@ -218,8 +218,8 @@ int main() {
 		for (i = 0; i < length; i++) {
 			int nextNum;
 			fscanf(inputFile, "%d", &nextNum);
-			inputArr[curFill] = nextNum;
-			curFill++;
+			inputArr[index] = nextNum;
+			index++;
 		}
 
 		mergeSort(inputArr, 0, length - 1);
@@ -236,7 +236,7 @@ int main() {
 				fprintf(outputFile, "%d ", printNumber);
 			}
 		}
-		curFill = 0;
+		index = 0;
 		free(inputArr);
 	}
 
