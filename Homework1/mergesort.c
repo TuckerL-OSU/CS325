@@ -319,10 +319,11 @@ int main(void) {
 
 		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
+			int linesPrinted = 0;
 			if (i == length - 1) {
 				fprintf(f, "%d", printNumber);
-				numOfLines--;
-				if (numOfLines > 0) {
+				linesPrinted++;
+				if (linesPrinted != numOfLines) {
 					fprintf(f, "\n");
 				}
 			}
