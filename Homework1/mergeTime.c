@@ -135,7 +135,7 @@ int main() {
 	// Two
 	/*********************************************************/
 	for (int i = 0; i < testTwo; i++) {
-		arrTwo[i] = randomNumberGenerator();
+		arrTwo[i] = RNG();
 	}
 
 	start = clock();
@@ -150,7 +150,7 @@ int main() {
 	// Three
 	/*********************************************************/
 	for (int i = 0; i < testThree; i++) {
-		arrThree[i] = randomNumberGenerator();
+		arrThree[i] = RNG();
 	}
 
 	start = clock();
@@ -166,7 +166,7 @@ int main() {
 	// Four
 	/*********************************************************/
 	for (int i = 0; i < testFour; i++) {
-		arrFour[i] = randomNumberGenerator();
+		arrFour[i] = RNG();
 	}
 
 	start = clock();
@@ -181,7 +181,7 @@ int main() {
 	// Five
 	/*********************************************************/
 	for (int i = 0; i < testFive; i++) {
-		arrFive[i] = randomNumberGenerator();
+		arrFive[i] = RNG();
 	}
 
 	start = clock();
@@ -196,7 +196,7 @@ int main() {
 	// Six
 	/*********************************************************/
 	for (int i = 0; i < testSix; i++) {
-		arrSix[i] = randomNumberGenerator();
+		arrSix[i] = RNG();
 	}
 
 	start = clock();
@@ -211,7 +211,7 @@ int main() {
 	// Seven
 	/*********************************************************/
 	for (int i = 0; i < testSeven; i++) {
-		arrSeven[i] = randomNumberGenerator();
+		arrSeven[i] = RNG();
 	}
 
 	start = clock();
@@ -226,7 +226,7 @@ int main() {
 	// Eight
 	/*********************************************************/
 	for (int i = 0; i < testEight; i++) {
-		arrEight[i] = randomNumberGenerator();
+		arrEight[i] = RNG();
 	}
 
 	start = clock();
@@ -241,7 +241,7 @@ int main() {
 	// Nine
 	/*********************************************************/
 	for (int i = 0; i < testNine; i++) {
-		arrNine[i] = randomNumberGenerator();
+		arrNine[i] = RNG();
 	}
 
 	start = clock();
@@ -256,7 +256,7 @@ int main() {
 	// Ten
 	/*********************************************************/
 	for (int i = 0; i < testTen; i++) {
-		arrTen[i] = randomNumberGenerator();
+		arrTen[i] = RNG();
 	}
 
 	start = clock();
