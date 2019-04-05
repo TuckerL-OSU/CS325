@@ -209,11 +209,11 @@ int main() {
 
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
-		int size;
+		int sizeOfInput;
 		if (!fscanf(inputFile, "%d", &size)) {
 			break;
 		}
-		int length = size;
+		int length = sizeOfInput;
 		inputArr = malloc(length * sizeof(int));
 
 		for (i = 0; i < length; i++) {
