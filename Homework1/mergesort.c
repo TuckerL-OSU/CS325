@@ -322,6 +322,7 @@ int main(void) {
 			int linesPrinted = 0;
 			if (i == length - 1) {
 				fprintf(f, "%d", printNumber);
+				printf("lineprinted: %d\t numlines: %d\n", linesPrinted, numOfLines);
 				if (linesPrinted < numOfLines - 1) {
 					fprintf(f, "\n");
 					linesPrinted++;
