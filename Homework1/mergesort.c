@@ -80,75 +80,57 @@ void mergeSort(int arr[], int l, int r)
 		merge(arr, l, m, r);
 	}
 }
-// first num tells us cols
-
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
-void printArray(int A[], int size, FILE *fp)
-{
-	//FILE *fp;
-	//printf("opening merge.txt\n");
-	//fp = fopen("merge.txt", "w+");
-	//printf("opened merge.txt\n");
-	int i;
-	for (i = 0; i < size; i++)
-		fprintf(fp, "%d ", A[i]);
-	fprintf(fp, "\n");
-	//printf("closing merge.txt\n");
-	//fclose(fp);
-	//printf("closed merge.txt\n");
-}
 
 // getNumLines and getLongestLine could be made more efficient with one open,
 // then using fseek or rewind to get back to beginning of file
-int getNumLinesInFile() {
-	FILE *fp;
-	int numLines = 0;
-	char c = ' ';
-
-	fp = fopen("data.txt", "r");
-
-	// eof contradiction
-	while (1) {
-		c = getc(fp);
-		if (c == '\n') {
-			numLines++;
-		}
-		else if (c == EOF) {
-			numLines++;
-			break;
-		}
-	}
-
-	printf("numLines = %d\n", numLines);
-	printf("Closing data.txt in numLines.\n");
-	fclose(fp);
-
-	return numLines;
-}
-
-int getLongestLineInFile() {
-	FILE *fp;
-	int lenOfLongest = 0;
-	size_t len = 0;
-	char *line = NULL;
-	size_t lineBuffer = 0;
-
-	fp = fopen("data.txt", "r");
-
-	while (!EOF) {
-		len = getline(&line, &lineBuffer, fp);
-
-		if (len > lenOfLongest) {
-			lenOfLongest = len;
-		}
-	}
-
-	fclose(fp);
-
-	return lenOfLongest;
-}
-
+//int getNumLinesInFile() {
+//	FILE *fp;
+//	int numLines = 0;
+//	char c = ' ';
+//
+//	fp = fopen("data.txt", "r");
+//
+//	// eof contradiction
+//	while (1) {
+//		c = getc(fp);
+//		if (c == '\n') {
+//			numLines++;
+//		}
+//		else if (c == EOF) {
+//			numLines++;
+//			break;
+//		}
+//	}
+//
+//	printf("numLines = %d\n", numLines);
+//	printf("Closing data.txt in numLines.\n");
+//	fclose(fp);
+//
+//	return numLines;
+//}
+//
+//int getLongestLineInFile() {
+//	FILE *fp;
+//	int lenOfLongest = 0;
+//	size_t len = 0;
+//	char *line = NULL;
+//	size_t lineBuffer = 0;
+//
+//	fp = fopen("data.txt", "r");
+//
+//	while (!EOF) {
+//		len = getline(&line, &lineBuffer, fp);
+//
+//		if (len > lenOfLongest) {
+//			lenOfLongest = len;
+//		}
+//	}
+//
+//	fclose(fp);
+//
+//	return lenOfLongest;
+//}
+//
 //int** readFile() {
 //	FILE *fp; 
 //	int numCols = 0;
@@ -191,163 +173,76 @@ int getLongestLineInFile() {
 //	return inputArr;
 //}
 
-
 /* Driver program to test above functions */
-//int main()
-//{
-//	//int arr[] = { 0 };
-//	//int numRows = 0;
-//	//int arr** = (int **)malloc(numRows * sizeof(int *));
-//	//int arr_size = sizeof(arr) / sizeof(arr[0]);
-//	//int arr** = readFile();
-//
-//	//printf("Given array is \n");
-//	//printArray(arr, arr_size);
-//
-//	
-//	int numCols = 0;
-//	int numRows = 0;
-//	char *line = NULL;
-//	int *inputArr = NULL;
-//
-//	numRows = getNumLinesInFile();
-//
-//	printf("about to open data.txt in main.\n");
-//	FILE *inputFile = fopen("data.txt", "r");
-//	FILE *outputFile = fopen("merge.txt", "w+");
-//
-//	int i;
-//	for (i = 0; i < numRows; i++) {
-//		int sizeOfLine = 0;
-//		printf("getting sizeofLine.\n");
-//		if (!fscanf(inputFile, "%d", &sizeOfLine)) {
-//			break;
-//		}
-//		printf("init inputArr.\n");
-//
-//		inputArr = malloc(sizeOfLine * sizeof(int));
-//
-//		int j;
-//		printf("about to loop.\n");
-//		for (j = 0; j < sizeOfLine; j++) {
-//			int value = 0;
-//			fscanf(inputFile, "%d", &value);
-//			inputArr[j] = value;
-//		}
-//		printf("after loop.\n");
-//
-//		printf("merging.\n");
-//		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
-//		printf("printing.\n");
-//		printArray(inputArr, sizeof(inputArr), outputFile);
-//		free(inputArr);
-//	}
-//
-//	printf("Closing data.txt in main.\n");
-//	fclose(outputFile);
-//	fclose(inputFile);
-//
-//	//mergeSort(arr, 0, size - 1);
-//
-//	/*printf("\nSorted array is \n");
-//	printArray(arr, arr_size);*/
-//	return 0;
-//}
-
-int main(void) {
-	int i;
-	int h;
-	int ch;
+int main() {
+	int i = 0;
+	int j = 0;
+	char c = ' ';
 	int numOfLines = 0;
-	int nextLine = 1;
-	FILE * fp;
-	char * line = NULL;
-	size_t len = 0;
-	int read;
-	int* ptr;
+	FILE *inputFile;
+	char *line = NULL;
+	int *inputArr;
 	int curFill = 0;
-	fp = fopen("data.txt", "r");
 
-	if (fp == NULL) {
+	// open file to get num of lines
+	inputFile = fopen("data.txt", "r");
+
+	if (inputFile == NULL) {
 		return 0;
 	}
 
-	/******************************************************************************/
-	FILE *f = fopen("merge.txt", "w");
-	if (f == NULL)
+	while (!feof(inputFile)) {
+		c = fgetc(inputFile);
+		if (c == '\n' || c == EOF) {
+			numOfLines++;
+		}
+	}
+	fclose(inputFile);
+	
+	// open output file to get ready to write to
+	FILE *outputFile = fopen("merge.txt", "w");
+	if (outputFile == NULL)
 	{
 		printf("Error opening file!\n");
 		exit(1);
 	}
 
-	while (!feof(fp)) {
-		ch = fgetc(fp);
-		if (ch == '\n' || ch == EOF) {
-			numOfLines++;
-		}
-	}
-	fclose(fp);
-	//printf("%d\n", numOfLines);
 	fopen("data.txt", "r");
-	/******************************************************************************/
-	for (h = 0; h < numOfLines; h++) {
+	for (j = 0; j < numOfLines; j++) {
 		int size;
-		if (!fscanf(fp, "%d", &size)) {
+		if (!fscanf(inputFile, "%d", &size)) {
 			break;
 		}
-		int length = size;
-		//printf("%d\n",length);
-		ptr = malloc(length * sizeof(int));
+		//int length = size;
+		inputArr = malloc(length * sizeof(int));
 
-		for (i = 0; i<length; i++) {
+		//for (i = 0; i < length; i++) {
+		for (i = 0; i < size; i++) {
 			int nextNum;
-			fscanf(fp, "%d", &nextNum);
-			ptr[curFill] = nextNum;
-			curFill++;
+			fscanf(inputFile, "%d", &nextNum);
+			inputArr[i] = nextNum;
+			//curFill++;
 		}
 
-		for (i = 0; i < length; i++) {
-			//printf("array number: %d\n", ptr[i]);
-		}
-
-		//printf("Given array is \n");
-		//printArray(ptr, length);
-		mergeSort(ptr, 0, length - 1);
-		//printf("\nSorted array is \n");
-		//printArray(ptr, length);
-		/* print integers and floats */
+		mergeSort(inputArr, 0, length - 1);
 
 		for (i = 0; i < length; i++) {
-			int printNumber = ptr[i];
-			int linesPrinted = 0;
+			int printNumber = inputArr[i];
 			if (i == length - 1) {
-				fprintf(f, "%d", printNumber);
-				//linesPrinted++;
-				//printf("lineprinted: %d\t numlines: %d\n", linesPrinted, numOfLines);
-				if (h < numOfLines - 1) {
-					fprintf(f, "\n");
-					
+				fprintf(outputFile, "%d", printNumber);
+				if (j < numOfLines - 1) {
+					fprintf(outputFile, "\n");
 				}
 			}
-			//else if (numOfLines == 1 && i == length) {
-			//	fprintf(f, "%d", printNumber);
-			//}
 			else {
-				fprintf(f, "%d ", printNumber);
+				fprintf(outputFile, "%d ", printNumber);
 			}
 		}
-
-		//if (i == length && fp != NULL) {
-		//	fprintf(f, "\n");
-		//}
 		curFill = 0;
-		free(ptr);
+		free(inputArr);
 	}
 
-	fclose(f);
-	fclose(fp);
-	if (line) {
-		free(line);
-	}
+	fclose(outputFile);
+	fclose(inputFile);
 	return 0;
 }
