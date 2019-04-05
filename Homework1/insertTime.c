@@ -1,7 +1,8 @@
 // Tucker Lavell
 // CS325 Sp 2019
-// Homework 1 - insertsort.c
+// Homework 1 - insertTime.c
 // insert sort taken from https://www.geeksforgeeks.org/insertion-sort/
+// time calc from https://www.geeksforgeeks.org/how-to-measure-time-taken-by-a-program-in-c/
 // also recieved help from friend Dan Drapp
 
 // C program for insertion sort 
