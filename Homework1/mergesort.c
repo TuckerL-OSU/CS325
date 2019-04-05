@@ -320,8 +320,11 @@ int main(void) {
 		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
 			if (i == length - 1) {
-				fprintf(f, "%d\n", printNumber);
-				//numOfLines--;
+				fprintf(f, "%d", printNumber);
+				numOfLines--;
+				if (numOfLines > 1) {
+					fprintf(f, "\n");
+				}
 			}
 			//else if (numOfLines == 1 && i == length) {
 			//	fprintf(f, "%d", printNumber);
