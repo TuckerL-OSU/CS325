@@ -317,15 +317,15 @@ int main(void) {
 		//printArray(ptr, length);
 		/* print integers and floats */
 
-		for (i = 0; i < length + 1; i++) {
+		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
 			if (i == length - 1) {
 				fprintf(f, "%d\n", printNumber);
 				numOfLines--;
 			}
-			else if (numOfLines == 1 && i == length) {
-				fprintf(f, "%d", printNumber);
-			}
+			//else if (numOfLines == 1 && i == length) {
+			//	fprintf(f, "%d", printNumber);
+			//}
 			else {
 				fprintf(f, "%d ", printNumber);
 			}
