@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h> 
 #include <math.h> 
+#include <time.h>
 
 /* Function to sort an array using insertion sort*/
 void insertionSort(int arr[], int n)
