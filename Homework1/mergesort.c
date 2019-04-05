@@ -323,7 +323,7 @@ int main(void) {
 				fprintf(f, "%d\n", printNumber);
 				numOfLines--;
 			}
-			else if (numOfLines == 1) {
+			else if (numOfLines == 1 && i == length - 1) {
 				fprintf(f, "%d", printNumber);
 			}
 			else {
