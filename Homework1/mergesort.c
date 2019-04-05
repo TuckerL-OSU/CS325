@@ -210,7 +210,7 @@ int main() {
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
 		int sizeOfInput;
-		if (!fscanf(inputFile, "%d", &size)) {
+		if (!fscanf(inputFile, "%d", &sizeOfInput)) {
 			break;
 		}
 		int length = sizeOfInput;
