@@ -322,12 +322,12 @@ int main(void) {
 			int linesPrinted = 0;
 			if (i == length - 1) {
 				fprintf(f, "%d", printNumber);
-				linesPrinted++;
-				printf("lineprinted: %d\t numlines: %d\n", linesPrinted, numOfLines);
-				if (linesPrinted < numOfLines - 1) {
-					fprintf(f, "\n");
-					
-				}
+				//linesPrinted++;
+				//printf("lineprinted: %d\t numlines: %d\n", linesPrinted, numOfLines);
+				//if (linesPrinted < numOfLines - 1) {
+				//	fprintf(f, "\n");
+				//	
+				//}
 			}
 			//else if (numOfLines == 1 && i == length) {
 			//	fprintf(f, "%d", printNumber);
