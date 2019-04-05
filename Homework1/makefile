@@ -4,4 +4,4 @@ default: mergesort.c
 	gcc -o mergesort mergesort.c $(CFLAGS)
 
 clean:
-	rm -f mergesort
+	rm -f mergesort merge.txt

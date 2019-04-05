@@ -84,19 +84,19 @@ void mergeSort(int arr[], int l, int r)
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
-void printArray(int A[], int size)
+void printArray(int A[], int size, FILE fp)
 {
-	FILE *fp;
-	printf("opening merge.txt\n");
-	fp = fopen("merge.txt", "w");
-	printf("opened merge.txt\n");
+	//FILE *fp;
+	//printf("opening merge.txt\n");
+	//fp = fopen("merge.txt", "w+");
+	//printf("opened merge.txt\n");
 	int i;
 	for (i = 0; i < size; i++)
 		fprintf(fp, "%d ", A[i]);
 	fprintf(fp, "\n");
-	printf("closing merge.txt\n");
-	fclose(fp);
-	printf("closed merge.txt\n");
+	//printf("closing merge.txt\n");
+	//fclose(fp);
+	//printf("closed merge.txt\n");
 }
 
 // getNumLines and getLongestLine could be made more efficient with one open,
@@ -213,14 +213,14 @@ int main()
 	numRows = getNumLinesInFile();
 
 	printf("about to open data.txt in main.\n");
-	FILE *fp;
-	fp = fopen("data.txt", "r");
+	FILE *inputFile = fopen("data.txt", "r");
+	FILE *outputFile = fopen("merge.txt", "w+");
 
 	int i;
 	for (i = 0; i < numRows; i++) {
 		int sizeOfLine = 0;
 		printf("getting sizeofLine.\n");
-		if (!fscanf(fp, "%d", &sizeOfLine)) {
+		if (!fscanf(inputFile, "%d", &sizeOfLine)) {
 			break;
 		}
 		printf("init inputArr.\n");
@@ -231,7 +231,7 @@ int main()
 		printf("about to loop.\n");
 		for (j = 0; j < sizeOfLine; j++) {
 			int value = 0;
-			fscanf(fp, "%d", &value);
+			fscanf(inputFile, "%d", &value);
 			inputArr[j] = value;
 		}
 		printf("after loop.\n");
@@ -239,12 +239,13 @@ int main()
 		printf("merging.\n");
 		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
 		printf("printing.\n");
-		printArray(inputArr, sizeof(inputArr));
-		//free(inputArr);
+		printArray(inputArr, sizeof(inputArr), outputFile);
+		free(inputArr);
 	}
 
 	printf("Closing data.txt in main.\n");
-	fclose(fp);
+	fclose(outputFile);
+	fclose(inputFile);
 
 	//mergeSort(arr, 0, size - 1);
 
