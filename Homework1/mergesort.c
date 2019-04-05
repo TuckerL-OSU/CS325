@@ -320,7 +320,7 @@ int main(void) {
 			int printNumber = ptr[i];
 			fprintf(f, "%d ", printNumber);
 		}
-		if (i == length) {
+		if (i == length && f != EOF) {
 			fprintf(f, "\n");
 		}
 		curFill = 0;
