@@ -2,6 +2,7 @@
 // CS325 Sp 2019
 // Homework 1 - mergesort.c
 // merge sort taken from https://www.geeksforgeeks.org/merge-sort/
+// also recieved help from friend Dan Drapp
 
 /* C program for Merge Sort */
 #include<stdlib.h> 
