@@ -236,7 +236,7 @@ int main()
 		printf("merging.\n");
 		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
 		printf("printing.\n");
-		printArray(inputArr, sizeof(inputArr) - 1);
+		printArray(inputArr, sizeof(inputArr));
 		//free(inputArr);
 	}
 
