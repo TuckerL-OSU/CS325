@@ -205,8 +205,9 @@ int main()
 	char *line = NULL;
 	int *inputArr = NULL;
 
-	fp = fopen("data.txt", "r");
 	numRows = getNumLinesInFile();
+
+	fp = fopen("data.txt", "r");
 
 	int i;
 	for (i = 0; i < numRows; i++) {
