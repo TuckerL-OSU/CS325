@@ -85,7 +85,7 @@ int main() {
 			index++;
 		}
 
-		insertionSort(inputArr, 0, length - 1);
+		insertionSort(inputArr, length - 1);
 
 		for (i = 0; i < length; i++) {
 			int printNumber = inputArr[i];
