@@ -7,6 +7,7 @@
 // C program for insertion sort 
 #include <math.h> 
 #include <stdio.h> 
+#include<stdlib.h> 
 
 /* Function to sort an array using insertion sort*/
 void insertionSort(int arr[], int n)
