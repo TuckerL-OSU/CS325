@@ -84,7 +84,7 @@ void mergeSort(int arr[], int l, int r)
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
-void printArray(int A[], int size, FILE fp)
+void printArray(int A[], int size, FILE &fp)
 {
 	//FILE *fp;
 	//printf("opening merge.txt\n");
@@ -239,7 +239,7 @@ int main()
 		printf("merging.\n");
 		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
 		printf("printing.\n");
-		printArray(inputArr, sizeof(inputArr), &outputFile);
+		printArray(inputArr, sizeof(inputArr), outputFile);
 		free(inputArr);
 	}
 
