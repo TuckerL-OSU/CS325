@@ -180,7 +180,6 @@ int main() {
 	char c = ' ';
 	int numOfLines = 0;
 	FILE *inputFile;
-	char *line = NULL;
 	int *inputArr;
 	int curFill = 0;
 
@@ -191,14 +190,6 @@ int main() {
 		return 0;
 	}
 
-	while (!feof(inputFile)) {
-		c = fgetc(inputFile);
-		if (c == '\n' || c == EOF) {
-			numOfLines++;
-		}
-	}
-	fclose(inputFile);
-	
 	// open output file to get ready to write to
 	FILE *outputFile = fopen("merge.txt", "w");
 	if (outputFile == NULL)
@@ -207,6 +198,14 @@ int main() {
 		exit(1);
 	}
 
+	while (!feof(inputFile)) {
+		c = fgetc(inputFile);
+		if (c == '\n' || c == EOF) {
+			numOfLines++;
+		}
+	}
+	fclose(inputFile);
+	
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
 		int sizeOfInput;
