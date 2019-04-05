@@ -29,6 +29,10 @@ void insertionSort(int arr[], int n)
 	}
 }
 
+int RNG() {
+	return rand() % 10000 + 1;
+}
+
 /* Driver program to test above functions */
 int main() {
 	// number of values to test
