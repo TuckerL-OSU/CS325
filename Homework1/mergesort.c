@@ -88,7 +88,7 @@ void printArray(int A[], int size)
 {
 	FILE *fp;
 	printf("opening merge.txt\n");
-	fp = fopen("merge.txt", "w+");
+	fp = fopen("merge.txt", "w");
 	printf("opened merge.txt\n");
 	int i;
 	for (i = 0; i < size; i++)
