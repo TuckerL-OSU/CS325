@@ -6,7 +6,5 @@ default: mergesort.c insertsort.c mergeTime.c insertTime.c
 	gcc -o mergeTime mergeTime.c $(CFLAGS)
 	gcc -o insertTime insertTime.c $(CFLAGS)
 
-
-
 clean:
 	rm -f mergesort merge.txt insertsort insertsort.txt mergeTime insertTime
