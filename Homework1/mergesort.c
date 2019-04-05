@@ -1,12 +1,13 @@
 // Tucker Lavell
 // CS325 Sp 2019
-// Homework 1 - mergesort.c
+// Homework 1 - mergetime.c
 // merge sort taken from https://www.geeksforgeeks.org/merge-sort/
 // also recieved help from friend Dan Drapp
 
 /* C program for Merge Sort */
-#include<stdlib.h> 
-#include<stdio.h> 
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <time.h>
 
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
@@ -206,7 +207,7 @@ int main() {
 		}
 	}
 	fclose(inputFile);
-	
+
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
 		int sizeOfInput;

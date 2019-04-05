@@ -5,9 +5,9 @@
 // also recieved help from friend Dan Drapp
 
 // C program for insertion sort 
-#include <math.h> 
+#include <stdlib.h>
 #include <stdio.h> 
-#include<stdlib.h> 
+#include <math.h> 
 
 /* Function to sort an array using insertion sort*/
 void insertionSort(int arr[], int n)
