@@ -214,7 +214,8 @@ int main() {
 			break;
 		}
 		//int length = size;
-		inputArr = malloc(length * sizeof(int));
+		//inputArr = malloc(length * sizeof(int));
+		inputArr = malloc(size * sizeof(int));
 
 		//for (i = 0; i < length; i++) {
 		for (i = 0; i < size; i++) {
