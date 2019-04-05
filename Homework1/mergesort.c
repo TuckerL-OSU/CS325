@@ -316,15 +316,20 @@ int main(void) {
 		//printf("\nSorted array is \n");
 		//printArray(ptr, length);
 		/* print integers and floats */
+
 		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
 			if (i == length - 1) {
 				fprintf(f, "%d\n", printNumber);
 			}
+			else if (i == length && fp == NULL) {
+				fprintf(f, "%d", printNumber);
+			}
 			else {
 				fprintf(f, "%d ", printNumber);
 			}
 		}
+
 		//if (i == length && fp != NULL) {
 		//	fprintf(f, "\n");
 		//}
