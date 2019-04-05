@@ -120,7 +120,7 @@ int main() {
 	// One
 	/*********************************************************/
 	for (int i = 0; i < testOne; i++) {
-		arrOne[i] = randomNumberGenerator();
+		arrOne[i] = RNG();
 	}
 
 	start = clock();
