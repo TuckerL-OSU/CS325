@@ -324,10 +324,10 @@ int main(void) {
 				fprintf(f, "%d", printNumber);
 				//linesPrinted++;
 				//printf("lineprinted: %d\t numlines: %d\n", linesPrinted, numOfLines);
-				//if (linesPrinted < numOfLines - 1) {
-				//	fprintf(f, "\n");
-				//	
-				//}
+				if (h < numOfLines - 1) {
+					fprintf(f, "\n");
+					
+				}
 			}
 			//else if (numOfLines == 1 && i == length) {
 			//	fprintf(f, "%d", printNumber);
