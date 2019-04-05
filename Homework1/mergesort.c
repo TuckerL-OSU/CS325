@@ -318,11 +318,16 @@ int main(void) {
 		/* print integers and floats */
 		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
-			fprintf(f, "%d ", printNumber);
+			if (i == length - 1) {
+				fprintf(f, "%d ", printNumber);
+			}
+			else {
+				fprintf(f, "%d\n", printNumber);
+			}
 		}
-		if (i == length && fp != NULL) {
-			fprintf(f, "\n");
-		}
+		//if (i == length && fp != NULL) {
+		//	fprintf(f, "\n");
+		//}
 		curFill = 0;
 		free(ptr);
 	}
