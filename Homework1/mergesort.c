@@ -347,7 +347,7 @@ int main(void) {
 	}
 
 	/******************************************************************************/
-	FILE *f = fopen("merge.out", "w");
+	FILE *f = fopen("merge.txt", "w");
 	if (f == NULL)
 	{
 		printf("Error opening file!\n");
