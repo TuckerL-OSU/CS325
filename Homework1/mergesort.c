@@ -200,7 +200,7 @@ int main()
 	//printf("Given array is \n");
 	//printArray(arr, arr_size);
 
-	FILE *fp;
+	
 	int numCols = 0;
 	int numRows = 0;
 	char *line = NULL;
@@ -208,6 +208,7 @@ int main()
 
 	numRows = getNumLinesInFile();
 
+	FILE *fp;
 	fp = fopen("data.txt", "r");
 
 	int i;
