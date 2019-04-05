@@ -219,8 +219,8 @@ int main() {
 		for (i = 0; i < length; i++) {
 			int nextNum;
 			fscanf(inputFile, "%d", &nextNum);
-			inputArr[i] = nextNum;
-			i++;
+			inputArr[curFill] = nextNum;
+			curFill++;
 		}
 
 		mergeSort(inputArr, 0, length - 1);
