@@ -225,7 +225,7 @@ int main()
 
 		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
 		printArray(inputArr, sizeof(inputArr) - 1);
-		free(inputArr);
+		//free(inputArr);
 	}
 
 	fclose(fp);
