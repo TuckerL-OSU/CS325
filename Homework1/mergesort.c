@@ -86,7 +86,7 @@ void mergeSort(int arr[], int l, int r)
 /* Function to print an array */
 void printArray(int A[], int size)
 {
-	FILE *fp
+	FILE *fp;
 
 	fp = fopen("merge.txt", "w+");
 	int i;
