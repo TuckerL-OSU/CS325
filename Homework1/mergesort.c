@@ -85,16 +85,23 @@ void mergeSort(int arr[], int l, int r)
 /* Function to print an array */
 void printArray(int A[], int size)
 {
+	FILE *fp
+
+	fp = fopen("merge.txt", "w+");
 	int i;
 	for (i = 0; i < size; i++)
-		printf("%d ", A[i]);
-	printf("\n");
+		fprintf(fp, "%d ", A[i]);
+	fprintf(fp, "\n");
+	fclose(fp);
 }
+
+int* readFile(FILE fp, int inputArr**) {
+
 
 /* Driver program to test above functions */
 int main()
 {
-	int arr[] = { 12, 11, 13, 5, 6, 7 };
+	int arr[] = { 0 };
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	printf("Given array is \n");
