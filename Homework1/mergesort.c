@@ -87,8 +87,9 @@ void mergeSort(int arr[], int l, int r)
 void printArray(int A[], int size)
 {
 	FILE *fp;
-
+	printf("opening merge.txt\n");
 	fp = fopen("merge.txt", "w+");
+	printf("opened merge.txt\n");
 	int i;
 	for (i = 0; i < size; i++)
 		fprintf(fp, "%d ", A[i]);
