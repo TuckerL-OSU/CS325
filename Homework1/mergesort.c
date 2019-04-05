@@ -216,19 +216,26 @@ int main()
 	int i;
 	for (i = 0; i < numRows; i++) {
 		int sizeOfLine = 0;
+		printf("getting sizeofLine.\n");
 		if (!fscanf(fp, "%d", &sizeOfLine)) {
 			break;
 		}
+		printf("init inputArr.\n");
+
 		inputArr = malloc(sizeOfLine * sizeof(int));
 
 		int j;
+		printf("about to loop.\n");
 		for (j = 0; j < sizeOfLine; j++) {
 			int value = 0;
 			fscanf(fp, "%d", &value);
 			inputArr[j] = value;
 		}
+		printf("after loop.\n");
 
+		printf("merging.\n");
 		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
+		printf("printing.\n");
 		printArray(inputArr, sizeof(inputArr) - 1);
 		//free(inputArr);
 	}
