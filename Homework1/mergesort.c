@@ -291,7 +291,7 @@ int main(void) {
 
 	while (!feof(fp)) {
 		ch = fgetc(fp);
-		if (ch == '\n') {
+		if (ch == '\n' || ch == EOF) {
 			numOfLines++;
 		}
 	}
