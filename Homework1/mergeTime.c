@@ -128,6 +128,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test One\n");
 	printf("Array Size: %d\n", testOne);
 	printf("Total time: %f\n\n", time);
 
@@ -143,6 +144,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Two\n");
 	printf("Array Size: %d\n", testTwo);
 	printf("Total time: %f\n\n", time);
 
@@ -159,6 +161,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Three\n");
 	printf("Array Size: %d\n", testThree);
 	printf("Total time: %f\n\n", time);
 
@@ -174,6 +177,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Four\n");
 	printf("Array Size: %d\n", testFour);
 	printf("Total time: %f\n\n", time);
 
@@ -189,6 +193,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Five\n");
 	printf("Array Size: %d\n", testFive);
 	printf("Total time: %f\n\n", time);
 
@@ -204,6 +209,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Six\n");
 	printf("Array Size: %d\n", testSix);
 	printf("Total time: %f\n\n", time);
 
@@ -219,6 +225,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Seven\n");
 	printf("Array Size: %d\n", testSeven);
 	printf("Total time: %f\n\n", time);
 
@@ -234,6 +241,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Eight\n");
 	printf("Array Size: %d\n", testEight);
 	printf("Total time: %f\n\n", time);
 
@@ -249,6 +257,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Nine\n");
 	printf("Array Size: %d\n", testNine);
 	printf("Total time: %f\n\n", time);
 
@@ -264,6 +273,7 @@ int main() {
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("Test Ten\n");
 	printf("Array Size: %d\n", testTen);
 	printf("Total time: %f\n\n", time);
 	/*********************************************************/
