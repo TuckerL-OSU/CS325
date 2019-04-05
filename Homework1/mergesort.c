@@ -322,7 +322,7 @@ int main(void) {
 				fprintf(f, "%d\n", printNumber);
 			}
 			// formats and exit condition
-			else if (fp == NULL) {
+			else if (i == length && fp == NULL) {
 				fprintf(f, "%d", printNumber);
 				break;
 			}
