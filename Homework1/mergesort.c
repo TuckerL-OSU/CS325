@@ -117,6 +117,7 @@ int getNumLinesInFile() {
 		}
 	}
 
+	printf("Closing data.txt in numLines.\n");
 	fclose(fp);
 
 	return numLines;
@@ -229,6 +230,7 @@ int main()
 		//free(inputArr);
 	}
 
+	printf("Closing data.txt in main.\n");
 	fclose(fp);
 
 	//mergeSort(arr, 0, size - 1);
