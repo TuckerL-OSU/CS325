@@ -321,8 +321,9 @@ int main(void) {
 			int printNumber = ptr[i];
 			if (i == length - 1) {
 				fprintf(f, "%d\n", printNumber);
+				numOfLines--;
 			}
-			else if (i == length && fp == NULL) {
+			else if (numOfLines == 1) {
 				fprintf(f, "%d", printNumber);
 			}
 			else {
