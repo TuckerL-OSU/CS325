@@ -223,8 +223,8 @@ int main()
 			inputArr[j] = value;
 		}
 
-		mergeSort(arr, 0, sizeof(arr) - 1);
-		printArray(arr, sizeof(arr) - 1);
+		mergeSort(inputArr, 0, sizeof(inputArr) - 1);
+		printArray(inputArr, sizeof(inputArr) - 1);
 		free(inputArr);
 	}
 
