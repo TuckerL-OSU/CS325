@@ -80,6 +80,7 @@ void mergeSort(int arr[], int l, int r)
 		merge(arr, l, m, r);
 	}
 }
+// first num tells us cols
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
@@ -95,13 +96,84 @@ void printArray(int A[], int size)
 	fclose(fp);
 }
 
-int* readFile(FILE fp, int inputArr**) {
+// getNumLines and getLongestLine could be made more efficient with one open,
+// then using fseek or rewind to get back to beginning of file
+int getNumLinesInFile() {
+	FILE *fp;
+	int numLines = 0;
+	char c = '';
+
+	fp = fopen("data.txt", "r");
+
+	// eof contradiction
+	while (1) {
+		c = getc(fp);
+		if (c == '\n') {
+			numLines++;
+		}
+		else if (c == EOF) {
+			numLines++;
+			break;
+		}
+	}
+
+	fclose(fp);
+
+	return numLines;
+}
+
+int getLongestLineInFile() {
+	FILE *fp;
+	int lenOfLongest = 0;
+	size_t len = 0;
+	char *line = NULL;
+	size_t lineBuffer = 0;
+
+	fp = fopen("data.txt", "r");
+
+	while (!EOF) {
+		len = getline(&line, &lineBuffer, fp);
+
+		if (len > lenOfLongest) {
+			lenOfLongest = len;
+		}
+	}
+
+	fclose(fp);
+
+	return lenOfLongest;
+}
+
+int* readFile() {
+	FILE *fp; 
+	int numCols = 0;
+	int numRows = 0;
+	char *line = NULL;
+
+	numRows = getNumLinesInFile();
+	numCols = getLongestLineInFile();
+	int inputArr[numRows][numCols];
+
+	fp = fopen("data.txt", "r");
+	
+	int i;
+	int j;
+	for (i = 0; i < numRows; i++) {
+		for (j = 0; j < numCols; j++) {
+			fscanf(fp, "%d", &inputArr[i][j]);
+		}
+	}
+
+	fclose(fp);
+}
 
 
 /* Driver program to test above functions */
 int main()
 {
-	int arr[] = { 0 };
+	//int arr[] = { 0 };
+	int numRows = 0;
+	int arr** = (int **)malloc(numRows * sizeof(int *));
 	int arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	printf("Given array is \n");
