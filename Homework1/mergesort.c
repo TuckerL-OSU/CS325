@@ -347,7 +347,7 @@ int main(void) {
 	}
 
 	/******************************************************************************/
-	FILE *f = fopen("merge.txt", "a");
+	FILE *f = fopen("merge.txt", "w");
 	if (f == NULL)
 	{
 		printf("Error opening file!\n");
@@ -394,7 +394,9 @@ int main(void) {
 			int printNumber = ptr[i];
 			fprintf(f, "%d ", printNumber);
 		}
-		fprintf(f, "\n");
+		if (i == length) {
+			fprintf(f, "\n");
+		}
 		curFill = 0;
 		free(ptr);
 	}
