@@ -319,10 +319,10 @@ int main(void) {
 		for (i = 0; i < length; i++) {
 			int printNumber = ptr[i];
 			if (i == length - 1) {
-				fprintf(f, "%d ", printNumber);
+				fprintf(f, "%d\n", printNumber);
 			}
 			else {
-				fprintf(f, "%d\n", printNumber);
+				fprintf(f, "%d ", printNumber);
 			}
 		}
 		//if (i == length && fp != NULL) {
