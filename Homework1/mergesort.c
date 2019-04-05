@@ -209,28 +209,25 @@ int main() {
 
 	fopen("data.txt", "r");
 	for (j = 0; j < numOfLines; j++) {
-		int size = 0;
+		int size;
 		if (!fscanf(inputFile, "%d", &size)) {
 			break;
 		}
-		//int length = size;
-		//inputArr = malloc(length * sizeof(int));
-		inputArr = malloc(size * sizeof(int));
+		int length = size;
+		inputArr = malloc(length * sizeof(int));
 
-		//for (i = 0; i < length; i++) {
-		for (i = 0; i < size; i++) {
+		for (i = 0; i < length; i++) {
 			int nextNum;
 			fscanf(inputFile, "%d", &nextNum);
 			inputArr[i] = nextNum;
-			//curFill++;
+			i++;
 		}
 
-		//mergeSort(inputArr, 0, length - 1);
-		mergeSort(inputArr, 0, size - 1);
+		mergeSort(inputArr, 0, length - 1);
 
-		for (i = 0; i < size; i++) {
+		for (i = 0; i < length; i++) {
 			int printNumber = inputArr[i];
-			if (i == size - 1) {
+			if (i == length - 1) {
 				fprintf(outputFile, "%d", printNumber);
 				if (j < numOfLines - 1) {
 					fprintf(outputFile, "\n");
@@ -240,7 +237,7 @@ int main() {
 				fprintf(outputFile, "%d ", printNumber);
 			}
 		}
-		//curFill = 0;
+		curFill = 0;
 		free(inputArr);
 	}
 
