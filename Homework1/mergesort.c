@@ -117,6 +117,7 @@ int getNumLinesInFile() {
 		}
 	}
 
+	printf("numLines = %d\n", numLines);
 	printf("Closing data.txt in numLines.\n");
 	fclose(fp);
 
