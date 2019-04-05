@@ -9,4 +9,4 @@ default: mergesort.c insertsort.c mergeTime.c insertTime.c
 
 
 clean:
-	rm -f mergesort merge.txt insertsort insertsort.txt
+	rm -f mergesort merge.txt insertsort insertsort.txt mergeTime insertTime
