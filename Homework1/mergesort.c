@@ -94,7 +94,9 @@ void printArray(int A[], int size)
 	for (i = 0; i < size; i++)
 		fprintf(fp, "%d ", A[i]);
 	fprintf(fp, "\n");
+	printf("closing merge.txt\n");
 	fclose(fp);
+	printf("closed merge.txt\n");
 }
 
 // getNumLines and getLongestLine could be made more efficient with one open,
