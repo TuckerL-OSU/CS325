@@ -37,16 +37,16 @@ int RNG() {
 /* Driver program to test above functions */
 int main() {
 	// number of values to test
-	int testOne = 50000;
-	int testTwo = 100000;
-	int testThree = 150000;
-	int testFour = 200000;
-	int testFive = 250000;
-	int testSix = 300000;
-	int testSeven = 350000;
-	int testEight = 400000;
-	int testNine = 450000;
-	int testTen = 500000;
+	int testOne = 5000;
+	int testTwo = 10000;
+	int testThree = 15000;
+	int testFour = 20000;
+	int testFive = 25000;
+	int testSix = 30000;
+	int testSeven = 35000;
+	int testEight = 40000;
+	int testNine = 45000;
+	int testTen = 50000;
 
 	int *arrOne = malloc(testOne * sizeof(int));
 	int *arrTwo = malloc(testTwo * sizeof(int));
