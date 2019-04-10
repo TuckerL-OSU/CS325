@@ -5,24 +5,25 @@
 
 #include <stdlib.h> 
 #include <stdio.h> 
+#include <math.h> 
 #include <time.h>
 
 void stoogeSort(int arr[], int n) {
-	if (n == 2 && arr[0]>arr[1]) {
+	if (n == 2 && arr[0] > arr[1]) {
 		int temp = arr[0];
 		arr[0] = arr[1];
 		arr[1] = temp;
 	}
-	else if (n>2) {
+	else if (n > 2) {
 		double m = ceil(((2 * n + 2) / 3));
-		int mInt = m;
+		int tempM = m;
 		int *ptr = &arr[0];
 
-		stoogeSort(ptr, mInt);
-		ptr = &arr[n - mInt];
-		stoogeSort(ptr, mInt);
+		stoogeSort(ptr, tempM);
+		ptr = &arr[n - tempM];
+		stoogeSort(ptr, tempM);
 		ptr = &arr[0];
-		stoogeSort(ptr, mInt);
+		stoogeSort(ptr, tempM);
 	}
 }
 
