@@ -77,7 +77,7 @@ int main() {
 			index++;
 		}
 
-		stoogeSort(inputArr, 0, length - 1);
+		stoogeSort(inputArr, length - 1);
 
 		for (i = 0; i < length; i++) {
 			int printNumber = inputArr[i];

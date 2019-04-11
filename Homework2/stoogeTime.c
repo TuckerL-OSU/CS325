@@ -64,7 +64,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrOne, 0, testOne - 1);
+	stoogeSort(arrOne, testOne - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -80,7 +80,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrTwo, 0, testTwo - 1);
+	stoogeSort(arrTwo, testTwo - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -96,7 +96,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrThree, 0, testThree - 1);
+	stoogeSort(arrThree, testThree - 1);
 
 	end = clock();
 
@@ -113,7 +113,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrFour, 0, testFour - 1);
+	stoogeSort(arrFour, testFour - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -129,7 +129,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrFive, 0, testFive - 1);
+	stoogeSort(arrFive, testFive - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -145,7 +145,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrSix, 0, testSix - 1);
+	stoogeSort(arrSix, testSix - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -161,7 +161,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrSeven, 0, testSeven - 1);
+	stoogeSort(arrSeven, testSeven - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -177,7 +177,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrEight, 0, testEight - 1);
+	stoogeSort(arrEight, testEight - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -193,7 +193,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrNine, 0, testNine - 1);
+	stoogeSort(arrNine, testNine - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
@@ -209,7 +209,7 @@ int main() {
 	}
 
 	start = clock();
-	stoogeSort(arrTen, 0, testTen - 1);
+	stoogeSort(arrTen, testTen - 1);
 	end = clock();
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
