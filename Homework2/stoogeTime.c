@@ -67,9 +67,14 @@ int main() {
 		arrOne[i] = RNG();
 	}
 
+	printf("starting clock\n");
 	start = clock();
+	printf("started clock\n");
 	stoogeSort(arrOne, testOne);
+	printf("ending clock\n");
 	end = clock();
+	printf("ended clock\n");
+
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
 	printf("Test One\n");
