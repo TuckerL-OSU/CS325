@@ -16,15 +16,22 @@ void stoogeSort(int arr[], int n) {
 		arr[1] = temp;
 	}
 	else if (n > 2) {
-		double m = ceil(((2 * n + 2) / 3));
-		int tempM = m;
+		//double m = ceil(((2 * n + 2) / 3));
+		int m = (int)ceil(((2 * n + 2) / 3));
+		//int tempM = m;
 		int *ptr = &arr[0];
 
-		stoogeSort(ptr, tempM);
-		ptr = &arr[n - tempM];
-		stoogeSort(ptr, tempM);
+		//stoogeSort(ptr, tempM);
+		//ptr = &arr[n - tempM];
+		//stoogeSort(ptr, tempM);
+		//ptr = &arr[0];
+		//stoogeSort(ptr, tempM);
+		stoogeSort(ptr, m);
+		ptr = &arr[n - m];
+		stoogeSort(ptr, m);
 		ptr = &arr[0];
-		stoogeSort(ptr, tempM);
+		stoogeSort(ptr, m);
+
 	}
 }
 
