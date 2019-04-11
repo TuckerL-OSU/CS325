@@ -16,18 +16,17 @@ void stoogeSort(int arr[], int n) {
 		arr[1] = temp;
 	}
 	else if (n > 2) {
-		double m = ceil(((2 * n + 2) / 3));
-		int tempM = m;
+		int m = (int)ceil(((2 * n + 2) / 3));
 		int *ptr = &arr[0];
 
-		stoogeSort(ptr, tempM);
-		ptr = &arr[n - tempM];
-		stoogeSort(ptr, tempM);
+		stoogeSort(ptr, m);
+		ptr = &arr[n - m];
+		stoogeSort(ptr, m);
 		ptr = &arr[0];
-		stoogeSort(ptr, tempM);
+		stoogeSort(ptr, m);
+
 	}
 }
-
 int RNG() {
 	return rand() % 10000 + 1;
 }
@@ -35,16 +34,16 @@ int RNG() {
 /* Driver program to test above functions */
 int main() {
 	// number of values to test
-	int testOne = 5000;
-	int testTwo = 10000;
-	int testThree = 15000;
-	int testFour = 20000;
-	int testFive = 25000;
-	int testSix = 30000;
-	int testSeven = 35000;
-	int testEight = 40000;
-	int testNine = 45000;
-	int testTen = 50000;
+	int testOne = 500;
+	int testTwo = 1000;
+	int testThree = 1500;
+	int testFour = 2000;
+	int testFive = 2500;
+	int testSix = 3000;
+	int testSeven = 3500;
+	int testEight = 4000;
+	int testNine = 4500;
+	int testTen = 5000;
 
 	int *arrOne = malloc(testOne * sizeof(int));
 	int *arrTwo = malloc(testTwo * sizeof(int));
