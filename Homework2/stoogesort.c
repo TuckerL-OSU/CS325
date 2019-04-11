@@ -17,7 +17,7 @@ void stoogeSort(int arr[], int n) {
 	}
 	else if (n > 2) {
 		//int m = (int)ceil(((2 * n + 2) / 3));
-		int m = (int)ceil(((2 * n + 1) / 3));
+		int m = (int)ceil(((2 * n + 2) / 3));
 		int *ptr = &arr[0];
 
 		stoogeSort(ptr, m);
