@@ -58,6 +58,8 @@ int main() {
 			inFile >> W[i];
 		}
 
+		cout << "Test Case " << ++testCase << endl;
+
 		int maxTPrice = 0;
 		// read number of family members
 		inFile >> F;
@@ -74,7 +76,7 @@ int main() {
 		}
 
 		// Print test case info to file
-		outFile << "Test Case " << ++testCase << endl;
+		//outFile << "Test Case " << ++testCase << endl;
 		outFile << "Total Price " << maxTPrice << endl;
 		outFile << "Member Items:" << endl;
 
