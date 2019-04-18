@@ -51,14 +51,14 @@ int main() {
 	inFile >> T;
 
 	// process T number of test cases
-	for (int k = 0; k < T; k++) {
+	for (int i = 0; i < T; i++) {
 		// read the number of items from the input file
 		inFile >> N;
 		// read the price and weight of each item
 		// into respective arrays
-		for (int i = 0; i < N; i++) {
-			inFile >> P[i];
-			inFile >> W[i];
+		for (int j = 0; j < N; j++) {
+			inFile >> P[j];
+			inFile >> W[j];
 		}
 
 		//cout << "Test Case " << ++testCase << endl;
@@ -84,11 +84,11 @@ int main() {
 		outFile << "Member Items:" << endl;
 
 		// print the items each family member should take
-		for (int t = 0; t < F; t++) {
-			sort(knapsack[t].begin(), knapsack[t].end());
-			outFile << t + 1 << ": ";
-			for (int s = 0; s < (int)knapsack[t].size(); s++) {
-				outFile << knapsack[t][s] << " ";
+		for (; j > 0; j--) {
+			sort(knapsack[j].begin(), knapsack[j].end());
+			outFile << j + 1 << ": ";
+			for (int k = 0; k < (int)knapsack[t].size(); k++) {
+				outFile << knapsack[j][k] << " ";
 			}
 
 			outFile << endl;
