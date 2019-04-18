@@ -135,13 +135,15 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		else {
 			// This item is included.
 			knapsack.push_back(i);
-			cout << "added " << i << " to knapsackBin: " << knapsackBin++ << endl;
+			cout << "added " << i << " to knapsackBin: " << knapsackBin << endl;
 			// Since this weight is included its
 			// value is deducted
 			res = res - P[i - 1];
 			w = w - W[i - 1];
 		}
 	}
+
+	knapsackBin++;
 
 	// K[N][M] represents the maximum price of items that can be carried by
 	// the family member
