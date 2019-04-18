@@ -109,12 +109,16 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		for (int w = 0; w <= M; w++) {
 			if (i == 0 || w == 0) {
 				K[i][w] = 0;
+				cout << "if kiw: " << K[i][w] << endl;
 			}
 			else if (W[i - 1] <= w) {
 				K[i][w] = max(P[i - 1] + K[i - 1][w - W[i - 1]], K[i - 1][w]);
+				cout << "elseif kiw: " << K[i][w] << endl;
 			}
 			else {
 				K[i][w] = K[i - 1][w];
+				cout << "else kiw: " << K[i][w] << endl;
+
 			}
 		}
 	}
