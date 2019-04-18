@@ -86,15 +86,18 @@ int main() {
 		for (int t = 0; t<F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ":";
-			cout << t + 1 << ":";
+			//cout << t + 1 << ":";
 			for (int s = 0; s<knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
-				cout << knapsack[t][s] << " ";
+				//cout << knapsack[t][s] << " ";
 			}
 
-			cout << endl;
+			//cout << endl;
 			outFile << endl;
 		}
+
+		// add a space between each test case
+		outFile << endl;
 	}
 
 	// close the files
