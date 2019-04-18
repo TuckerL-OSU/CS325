@@ -61,7 +61,7 @@ int main() {
 			inFile >> W[i];
 		}
 
-		//cout << "Test Case " << ++testCase << endl; 
+		//cout << "Test Case " << ++testCase << endl;
 
 		int maxTPrice = 0;
 		// read number of family members
@@ -132,6 +132,10 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int w = M;
 
 	//static int knapsackBin = 0;
+
+	if (!knapsack.empty()) {
+		knapsack.clear();
+	}
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
