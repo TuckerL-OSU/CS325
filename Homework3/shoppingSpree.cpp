@@ -9,6 +9,7 @@
 #include<fstream>
 #include<vector>
 #include<algorithm>
+#include <ostream>
 
 using namespace std;
 
@@ -87,8 +88,7 @@ int main() {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
-				outFile << knapsack[t][s] << " ";
-				outFile.flush();
+				outFile << knapsack[t][s] << " " << flush;
 			}
 
 			outFile << endl;
