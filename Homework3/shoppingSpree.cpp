@@ -22,7 +22,7 @@ int main() {
 	int F = 0;	// no. of people in the family
 	int M = 0;	// Maximum weight that can be carried
 
-	vector<vector<int>> knapsack(100);
+	vector<vector<int> > knapsack(100);
 	ifstream inFile;
 	ofstream outFile;
 
