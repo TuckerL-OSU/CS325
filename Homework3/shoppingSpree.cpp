@@ -72,7 +72,7 @@ int main() {
 			inFile >> M;
 			// find maximum price of items that can be carried by
 			// current family member and add it to maxPrice
-			maxTPrice = maxTPrice + calcKnapsack(W, P, N, M, knapsack[j]);
+			maxTPrice += calcKnapsack(W, P, N, M, knapsack[j]);
 		}
 
 		// Print test case info to file
@@ -132,7 +132,6 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
-			cout << "added " << i << " to knapsackBin: " << knapsackBin << endl;
 			continue;
 		}
 		else {
