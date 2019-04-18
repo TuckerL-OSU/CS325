@@ -10,7 +10,7 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-int knapsackDP(int[], int[], int, int, vector<int>&);
+int calcKnapsack(int[], int[], int, int, vector<int>&);
 int max(int, int);
 
 int main() {
@@ -70,7 +70,7 @@ int main() {
 			inFile >> M;
 			// find maximum price of items that can be carried by
 			// current family member and add it to maxPrice
-			maxTPrice = maxTPrice + knapsackDP(W, P, N, M, knapsack[j]);
+			maxTPrice = maxTPrice + calcKnapsack(W, P, N, M, knapsack[j]);
 		}
 
 		// Print test case info to file
@@ -102,7 +102,7 @@ int main() {
 
 // returns the maximum price of items that can be carried
 // by a person, who can carry maximum weight M
-int knapsackDP(int W[], int P[], int N, int M, vector<int> &knapsack) {
+int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int K[N + 1][M + 1];
 	// Build table K[][]
 	for (int i = 0; i <= N; i++) {
