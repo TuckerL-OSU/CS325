@@ -88,7 +88,7 @@ int main() {
 			sort(knapsack[j].begin(), knapsack[j].end());
 			outFile << j + 1 << ": ";
 			int size = (int)knapsack[j].size();
-			for (int k = 0; k < size; k++) {
+			for (int k = 0; k < size - 1; k++) {
 				if (k != size - 1) {
 					outFile << knapsack[j][k] << " ";
 				}
