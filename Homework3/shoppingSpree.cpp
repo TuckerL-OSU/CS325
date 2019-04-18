@@ -85,8 +85,7 @@ int main() {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
-				//outFile << knapsack[t][s] << " ";
-				outFile << knapsack[t] << " ";
+				outFile << knapsack[t][s] << " ";
 			}
 
 			outFile << endl;
@@ -133,6 +132,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
+			cout << "added " << i << " to knapsackBin: " << knapsackBin << endl;
 			continue;
 		}
 		else {
