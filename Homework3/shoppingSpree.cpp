@@ -53,9 +53,9 @@ int main() {
 		inFile >> N;
 		// read the price and weight of each item
 		// into respective arrays
-		for (int i = 0; i < N; i++) {
-			inFile >> P[i];
-			inFile >> W[i];
+		for (int x = 0; x < N; x++) {
+			inFile >> P[x];
+			inFile >> W[x];
 		}
 
 		int maxTPrice = 0;
