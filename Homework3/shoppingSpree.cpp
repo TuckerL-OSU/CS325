@@ -82,10 +82,6 @@ int main() {
 		for (int t = 0; t < F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
-			for (auto s = knapsack[t].begin(); s < knapsack[t].end(); s++) {
-				cout << knapsack[t][s] << " ";
-			}
-
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
 			}
@@ -136,7 +132,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		}
 		else {
 			// This item is included.
-			knapsack.push_back(i);
+			knapsack[i].push_back(i);
 			// Since this weight is included its
 			// value is deducted
 			res = res - P[i - 1];
