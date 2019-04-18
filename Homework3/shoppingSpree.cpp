@@ -126,6 +126,8 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int res = K[N][M];
 	int w = M;
 
+	static int knapsackBin = 0;
+
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
 			continue;
@@ -133,7 +135,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		else {
 			// This item is included.
 			knapsack.push_back(i);
-			cout << "added " << i << "to knapsack" << endl;
+			cout << "added " << i << " to knapsackBin: " << knapsackBin++ << endl;
 			// Since this weight is included its
 			// value is deducted
 			res = res - P[i - 1];
