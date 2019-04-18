@@ -90,7 +90,7 @@ int main() {
 			int sizeKnapsack = (int)knapsack[j].size();
 			for (int k = 0; k < sizeKnapsack; k++) {
 				outFile << knapsack[j][k];
-				if (k != size - 1) {
+				if (k != sizeKnapsack - 1) {
 					 outFile << " ";
 				}
 			}
