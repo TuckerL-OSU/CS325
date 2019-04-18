@@ -85,7 +85,7 @@ int main() {
 
 		// print the items each family member should take
 		for (int t = 0; t < F; t++) {
-			//sort(knapsack[t].begin(), knapsack[t].end());
+			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
