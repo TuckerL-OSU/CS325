@@ -95,7 +95,9 @@ int main() {
 		}
 
 		// add a space between each test case
-		outFile << endl;
+		if (testCase != T) {
+			outFile << endl;
+		}
 	}
 
 	// close the files
@@ -108,21 +110,23 @@ int main() {
 // returns the maximum price of items that can be carried
 // by a person, who can carry maximum weight M
 int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
+	// sanitize the vector element we are working on
+	if (!knapsack.empty()) {
+		knapsack.clear();
+	}
+
 	int K[N + 1][M + 1];
 	// Build table K[][]
 	for (int i = 0; i <= N; i++) {
 		for (int w = 0; w <= M; w++) {
 			if (i == 0 || w == 0) {
 				K[i][w] = 0;
-				//cout << "if kiw: " << K[i][w] << endl;
 			}
 			else if (W[i - 1] <= w) {
 				K[i][w] = max(P[i - 1] + K[i - 1][w - W[i - 1]], K[i - 1][w]);
-				//cout << "elseif kiw: " << K[i][w] << endl;
 			}
 			else {
 				K[i][w] = K[i - 1][w];
-				//cout << "else kiw: " << K[i][w] << endl;
 			}
 		}
 	}
@@ -132,10 +136,6 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int w = M;
 
 	//static int knapsackBin = 0;
-
-	if (!knapsack.empty()) {
-		knapsack.clear();
-	}
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
