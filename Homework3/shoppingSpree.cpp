@@ -82,7 +82,7 @@ int main() {
 		for (int t = 0; t < F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
-			for (int s = knapsack[t].begin(); s < knapsack[t].end(); s++) {
+			for (auto s = knapsack[t].begin(); s < knapsack[t].end(); s++) {
 				cout << knapsack[t][s] << " ";
 			}
 
