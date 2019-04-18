@@ -24,7 +24,6 @@ void stoogeSort(int arr[], int n) {
 		stoogeSort(ptr, m);
 		ptr = &arr[0];
 		stoogeSort(ptr, m);
-
 	}
 }
 int RNG() {
@@ -66,14 +65,9 @@ int main() {
 		arrOne[i] = RNG();
 	}
 
-	printf("starting clock\n");
 	start = clock();
-	printf("started clock\n");
 	stoogeSort(arrOne, testOne);
-	printf("ending clock\n");
 	end = clock();
-	printf("ended clock\n");
-
 
 	time = (double)(end - start) / CLOCKS_PER_SEC;
 	printf("Test One\n");

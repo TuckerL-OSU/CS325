@@ -24,7 +24,6 @@ void stoogeSort(int arr[], int n) {
 		stoogeSort(ptr, m);
 		ptr = &arr[0];
 		stoogeSort(ptr, m);
-
 	}
 }
 
