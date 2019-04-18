@@ -1,4 +1,4 @@
-CFLAGS= -Wall -lm -std=c99
+CFLAGS= -Wall -lm
 
 default: shoppingSpree.cpp
 	g++ -o shoppingSpree shoppingSpree.cpp $(CFLAGS)
