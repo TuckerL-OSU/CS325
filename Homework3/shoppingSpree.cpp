@@ -9,7 +9,6 @@
 #include<fstream>
 #include<vector>
 #include<algorithm>
-#include <ostream>
 
 using namespace std;
 
