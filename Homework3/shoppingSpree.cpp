@@ -14,13 +14,13 @@ int knapsackDP(int[], int[], int, int, vector<int>&);
 int max(int, int);
 
 int main() {
-	int T = 0;	// no. of test cases
+	int T = 0;	// num test cases
 	int testCase = 0; // counter for case number
-	int N = 0;	// no. of items
+	int N = 0;	// num of items
 	int P[100];	// prices of items
 	int W[100];	// weights of items
-	int F = 0;	// no. of people in the family
-	int M = 0;	// Maximum weight that can be carried
+	int F = 0;	// num of people in the family
+	int M = 0;	// max weight that can be carried
 
 	vector<vector<int> > knapsack(100);
 	ifstream inFile;
@@ -48,12 +48,12 @@ int main() {
 	inFile >> T;
 
 	// process T number of test cases
-	for (int k = 0; k<T; k++) {
+	for (int k = 0; k < T; k++) {
 		// read the number of items from the input file
 		inFile >> N;
 		// read the price and weight of each item
 		// into respective arrays
-		for (int i = 0; i<N; i++) {
+		for (int i = 0; i < N; i++) {
 			inFile >> P[i];
 			inFile >> W[i];
 		}
@@ -64,7 +64,7 @@ int main() {
 		// find maximum price of items that can be carried by
 		// each family member and keep track the total of the
 		// maximum prices
-		for (int j = 0; j<F; j++) {
+		for (int j = 0; j < F; j++) {
 			// read the maximum weight that can be carried by a
 			// current family member
 			inFile >> M;
@@ -73,26 +73,19 @@ int main() {
 			maxTPrice = maxTPrice + knapsackDP(W, P, N, M, knapsack[j]);
 		}
 
-		// Write the maximum total price to output file
+		// Print test case info to file
 		outFile << "Test Case " << ++testCase << endl;
 		outFile << "Total Price " << maxTPrice << endl;
 		outFile << "Member Items" << endl;
 
-		//// Write the maximum total price to console
-		//cout << "Total Price " << maxTPrice << endl;
-		//cout << "Member Items" << endl;
-
 		// print the items each family member should take
-		for (int t = 0; t<F; t++) {
+		for (int t = 0; t < F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ":";
-			//cout << t + 1 << ":";
-			for (int s = 0; s<knapsack[t].size(); s++) {
+			for (int s = 0; s < (int)knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
-				//cout << knapsack[t][s] << " ";
 			}
 
-			//cout << endl;
 			outFile << endl;
 		}
 
