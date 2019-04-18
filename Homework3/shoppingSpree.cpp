@@ -84,10 +84,10 @@ int main() {
 		outFile << "Member Items:" << endl;
 
 		// print the items each family member should take
-		for (; j > 0; j--) {
+		for (j; j > 0; j--) {
 			sort(knapsack[j].begin(), knapsack[j].end());
 			outFile << j + 1 << ": ";
-			for (int k = 0; k < (int)knapsack[t].size(); k++) {
+			for (int k = 0; k < (int)knapsack[j].size(); k++) {
 				outFile << knapsack[j][k] << " ";
 			}
 
