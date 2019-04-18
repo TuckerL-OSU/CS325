@@ -61,7 +61,7 @@ int main() {
 			inFile >> W[i];
 		}
 
-		//cout << "Test Case " << ++testCase << endl;
+		//cout << "Test Case " << ++testCase << endl; 
 
 		int maxTPrice = 0;
 		// read number of family members
