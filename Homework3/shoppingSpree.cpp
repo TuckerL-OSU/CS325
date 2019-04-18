@@ -82,6 +82,10 @@ int main() {
 		for (int t = 0; t < F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
+			for (int s = knapsack[t].begin(); s < knapsack[t].end(); s++) {
+				cout << knapsack[t][s] << " ";
+			}
+
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
 			}
@@ -109,16 +113,15 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		for (int w = 0; w <= M; w++) {
 			if (i == 0 || w == 0) {
 				K[i][w] = 0;
-				cout << "if kiw: " << K[i][w] << endl;
+				//cout << "if kiw: " << K[i][w] << endl;
 			}
 			else if (W[i - 1] <= w) {
 				K[i][w] = max(P[i - 1] + K[i - 1][w - W[i - 1]], K[i - 1][w]);
-				cout << "elseif kiw: " << K[i][w] << endl;
+				//cout << "elseif kiw: " << K[i][w] << endl;
 			}
 			else {
 				K[i][w] = K[i - 1][w];
-				cout << "else kiw: " << K[i][w] << endl;
-
+				//cout << "else kiw: " << K[i][w] << endl;
 			}
 		}
 	}
