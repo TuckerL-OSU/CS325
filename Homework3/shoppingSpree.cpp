@@ -48,14 +48,14 @@ int main() {
 	inFile >> T;
 
 	// process T number of test cases
-	for (int i = 0; i < T; i++) {
+	for (int k = 0; k < T; k++) {
 		// read the number of items from the input file
 		inFile >> N;
 		// read the price and weight of each item
 		// into respective arrays
-		for (int j = 0; j < N; j++) {
-			inFile >> P[j];
-			inFile >> W[j];
+		for (int i = 0; i < N; i++) {
+			inFile >> P[i];
+			inFile >> W[i];
 		}
 
 		int maxTPrice = 0;
@@ -82,7 +82,7 @@ int main() {
 		for (int t = 0; t < F; t++) {
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
-			for (int s = 0; s < (int)knapsack[t].size(); s++) {
+			for (int s = 0; s < knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
 			}
 
