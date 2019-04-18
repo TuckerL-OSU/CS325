@@ -84,7 +84,7 @@ int main() {
 
 		// print the items each family member should take
 		for (int t = 0; t < F; t++) {
-			inFile.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
