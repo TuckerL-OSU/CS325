@@ -128,7 +128,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int res = K[N][M];
 	int w = M;
 
-	int knapsackBin = 0;
+	static int knapsackBin = 0;
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
