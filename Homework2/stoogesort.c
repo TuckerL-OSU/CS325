@@ -1,6 +1,6 @@
 // Tucker Lavell
 // CS325 Sp 2019
-// Homework 1 - stoogesort.c
+// Homework 2 - stoogesort.c
 // follows pseudocode given on homework
 // recieved help from friend Dan Drapp
 

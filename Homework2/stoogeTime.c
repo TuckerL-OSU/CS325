@@ -1,6 +1,6 @@
 // Tucker Lavell
 // CS325 Sp 2019
-// Homework 1 - stoogeTime.c
+// Homework 2 - stoogeTime.c
 // follows pseudocode given on homework
 // recieved help from friend Dan Drapp
 
