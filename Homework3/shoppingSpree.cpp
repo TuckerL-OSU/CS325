@@ -9,6 +9,7 @@
 #include<fstream>
 #include<vector>
 #include<algorithm>
+#include<ios>
 #include<limits>
 using namespace std;
 int calcKnapsack(int[], int[], int, int, vector<int>&);
