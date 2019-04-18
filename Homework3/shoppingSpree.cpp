@@ -9,9 +9,9 @@
 #include<fstream>
 #include<vector>
 #include<algorithm>
-#include<ios>
-#include<limits>
+
 using namespace std;
+
 int calcKnapsack(int[], int[], int, int, vector<int>&);
 int max(int, int);
 
@@ -60,7 +60,7 @@ int main() {
 			inFile >> W[i];
 		}
 
-		cout << "Test Case " << ++testCase << endl;
+		//cout << "Test Case " << ++testCase << endl;
 
 		int maxTPrice = 0;
 		// read number of family members
@@ -78,17 +78,17 @@ int main() {
 		}
 
 		// Print test case info to file
-		//outFile << "Test Case " << ++testCase << endl;
+		outFile << "Test Case " << ++testCase << endl;
 		outFile << "Total Price " << maxTPrice << endl;
 		outFile << "Member Items:" << endl;
 
 		// print the items each family member should take
 		for (int t = 0; t < F; t++) {
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			sort(knapsack[t].begin(), knapsack[t].end());
 			outFile << t + 1 << ": ";
 			for (int s = 0; s < (int)knapsack[t].size(); s++) {
 				outFile << knapsack[t][s] << " ";
+				outFile.flush();
 			}
 
 			outFile << endl;
@@ -131,7 +131,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	int res = K[N][M];
 	int w = M;
 
-	static int knapsackBin = 0;
+	//static int knapsackBin = 0;
 
 	for (int i = N; i > 0 && res > 0; i--) {
 		if (res == K[i - 1][w]) {
@@ -140,7 +140,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		else {
 			// This item is included.
 			knapsack.push_back(i);
-			cout << "added " << i << " to knapsackBin: " << knapsackBin << endl;
+			//cout << "added " << i << " to knapsackBin: " << knapsackBin << endl;
 			// Since this weight is included its
 			// value is deducted
 			res = res - P[i - 1];
@@ -148,7 +148,7 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 		}
 	}
 
-	knapsackBin++;
+	//knapsackBin++;
 
 	// K[N][M] represents the maximum price of items that can be carried by
 	// the family member
