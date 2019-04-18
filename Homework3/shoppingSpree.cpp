@@ -13,8 +13,8 @@
 
 using namespace std;
 
-int calcKnapsack(int[], int[], int, int, vector<int>&);
-int max(int, int);
+int calcPriceKnapsack(int[], int[], int, int, vector<int>&);
+int getMax(int, int);
 
 int main() {
 	int T = 0;	// num test cases
@@ -52,10 +52,11 @@ int main() {
 
 	// process T number of test cases
 	for (int i = 0; i < T; i++) {
+		int maxPrice = 0;
 		// read the number of items from the input file
 		inFile >> N;
-		// read the price and weight of each item
-		// into respective arrays
+
+		// read the price and weight of each item into respective arrays
 		for (int j = 0; j < N; j++) {
 			inFile >> P[j];
 			inFile >> W[j];
@@ -63,28 +64,27 @@ int main() {
 
 		//cout << "Test Case " << ++testCase << endl;
 
-		int maxTPrice = 0;
 		// read number of family members
 		inFile >> F;
-		// find maximum price of items that can be carried by
-		// each family member and keep track the total of the
-		// maximum prices
+
+		// find maximum price of items that can be carried by each 
+		// family member and keep track the total of the maximum prices
 		for (int j = 0; j < F; j++) {
 			// read the maximum weight that can be carried by a
 			// current family member
 			inFile >> M;
 			// find maximum price of items that can be carried by
 			// current family member and add it to maxPrice
-			maxTPrice += calcKnapsack(W, P, N, M, knapsack[j]);
+			maxPrice += calcPriceKnapsack(W, P, N, M, knapsack[j]);
 		}
 
-		// Print test case info to file
+		// print test case info to file
 		outFile << "Test Case " << ++testCase << endl;
-		outFile << "Total Price " << maxTPrice << endl;
+		outFile << "Total Price " << maxPrice << endl;
 		outFile << "Member Items:" << endl;
 
 		// print the items each family member should take
-		for (j; j > 0; j--) {
+		for (int j = 0; j < F; j++) {
 			sort(knapsack[j].begin(), knapsack[j].end());
 			outFile << j + 1 << ": ";
 			for (int k = 0; k < (int)knapsack[j].size(); k++) {
@@ -107,23 +107,23 @@ int main() {
 	return 0;
 }
 
-// returns the maximum price of items that can be carried
-// by a person, who can carry maximum weight M
-int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
+// returns the maximum price of items that can be carried by a person, 
+// whom can carry maximum weight M
+int calcPriceKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	// sanitize the vector element we are working on
 	if (!knapsack.empty()) {
 		knapsack.clear();
 	}
 
+	// Build table K[][] with items and weights
 	int K[N + 1][M + 1];
-	// Build table K[][]
 	for (int i = 0; i <= N; i++) {
 		for (int w = 0; w <= M; w++) {
 			if (i == 0 || w == 0) {
 				K[i][w] = 0;
 			}
 			else if (W[i - 1] <= w) {
-				K[i][w] = max(P[i - 1] + K[i - 1][w - W[i - 1]], K[i - 1][w]);
+				K[i][w] = getMax(P[i - 1] + K[i - 1][w - W[i - 1]], K[i - 1][w]);
 			}
 			else {
 				K[i][w] = K[i - 1][w];
@@ -159,8 +159,8 @@ int calcKnapsack(int W[], int P[], int N, int M, vector<int> &knapsack) {
 	return K[N][M];
 }
 
-// returns maximum of two parameters that are received
-int max(int a, int b) {
+// returns maximum of the two numbers received
+int getMax(int a, int b) {
 	if (a > b)
 		return a;
 	else
