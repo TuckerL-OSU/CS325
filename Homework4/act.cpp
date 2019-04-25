@@ -289,7 +289,7 @@ int main()
 
 		cout << "Activities: ";
 
-		for (int i = 0; i < sd.size(); i++)
+		for (int i = 0; i < (int)sd.size(); i++)
 
 		{
 
