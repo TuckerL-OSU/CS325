@@ -237,7 +237,7 @@ int main()
 
 		//pair template using vector
 
-		vector<pair<int, pair<int, int>>> p;
+		vector<pair<int, pair<int, int> > > p;
 
 		for (i = 0; i < tt; ++i)
 
@@ -289,7 +289,7 @@ int main()
 
 		cout << "Activities: ";
 
-		for (int i : sd)
+		for (int i = 0; i < sd.size(); i++)
 
 		{
 
