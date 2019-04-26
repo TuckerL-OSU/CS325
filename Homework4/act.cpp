@@ -338,7 +338,7 @@ operator overloading approach
 */
 
 bool compare(myActivity activity1, myActivity activity2) {
-	if (activity1.end_time < activity2.start_time) 
+	if (activity1.end_time <= activity2.end_time) 
 		return true;
 	return false;
 }
