@@ -139,7 +139,7 @@ struct Activity **readFile() {
 	while (1) {
 		// read in the number of possible activities in the set
 		inFile >> numActivites;
-		activities[numSets]* = (Activity*)malloc(numActivites * sizeof(Activity*));
+		activities[numSets] = (struct Activity*)malloc(numActivites * sizeof(struct Activity*));
 
 		int i = 0;
 		for (; i < numActivites; i++) {
