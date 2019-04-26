@@ -505,7 +505,7 @@ struct Activity {
 //comparator helper function for sort
 int compare(Activity x, Activity y)
 {
-	return x.start => y.start;
+	return x.start >= y.start;
 }
 
 /***********************************************************************
