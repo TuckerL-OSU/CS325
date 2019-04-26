@@ -123,30 +123,30 @@ void lastToStart(struct Activity arr[], int n) {
 struct Activity **readFile() {
 	int numActivites = 0;
 	int numSets = 0;
-	ifstream *inFile;
+	ifstream inFile;
 	struct Activity **activities;
 	char *buffer;
 	char c = ' ';
 	int numOfLines = 0;
 
 	// open input file
-	inFile->open("act.txt");
+	inFile.open("act.txt");
 
 	// check whether the input file is opend or not
-	if (!inFile->is_open()) {
+	if (!inFile.is_open()) {
 		cout << "can't open the file" << endl;
 		exit(-1);
 	}
 
-	while (!inFile->eof()) {
+	while (!inFile.eof()) {
 		c = fgetc(inFile);
-		if (c == '\n' || c = EOF) {
+		if (c == '\n' || c == EOF) {
 			numOfLines++;
 		}
 	}
-	inFile->close();
+	inFile.close();
 
-	inFile->open("act.txt");
+	inFile.open("act.txt");
 	for (int i = 0; i < numOfLines; i++) {
 		inFile >> numActivites;
 		for (int j = 0; j < numActivites; j++) {
@@ -162,7 +162,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (!inFile->eof()) {
+		if (!inFile.eof()) {
 			continue;
 		}
 		else {
