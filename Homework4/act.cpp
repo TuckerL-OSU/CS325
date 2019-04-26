@@ -483,7 +483,7 @@ void printMaxActivities(Activitiy arr[], int n)
 int main()
 {
 	//Activitiy arr[] = { { 5, 9 },{ 1, 2 },{ 3, 4 },{ 0, 6 },{ 5, 7 },{ 8, 9 } };
-	Activitiy arr[] = { {1, 4}, {3, 5}, {0, 6} {5, 7}, {3, 9}, {5, 9}, {6, 10}, {8, 11}, {8, 12}, {2, 14}, {12, 16} };
+	Activitiy arr[] = { {1, 4}, {3, 5}, {0, 6}, {5, 7}, {3, 9}, {5, 9}, {6, 10}, {8, 11}, {8, 12}, {2, 14}, {12, 16} };
 	int n = sizeof(arr) / sizeof(arr[0]);
 	printMaxActivities(arr, n);
 	return 0;
