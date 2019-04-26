@@ -187,75 +187,77 @@ int main() {
 	int F = 0;	// num of people in the family
 	int M = 0;	// max weight that can be carried
 
-	vector<vector<int> > knapsack(100);
-	
-	ofstream outFile;
+	//vector<vector<int> > knapsack(100);
+	//
+	//ofstream outFile;
 
-	
+	//
 
-	// check whether the input file is opend or not
-	//if (!inFile.is_open()) {
-	//	cout << "can't open the file" << endl;
-	//	return 1;
+	//// check whether the input file is opend or not
+	////if (!inFile.is_open()) {
+	////	cout << "can't open the file" << endl;
+	////	return 1;
+	////}
+
+
+	//// process T number of test cases
+	//for (int i = 0; i < T; i++) {
+	//	int maxPrice = 0;
+	//	// read the number of items from the input file
+	//	inFile >> N;
+
+	//	// read the price and weight of each item into respective arrays
+	//	for (int j = 0; j < N; j++) {
+	//		inFile >> P[j];
+	//		inFile >> W[j];
+	//	}
+
+	//	//cout << "Test Case " << ++testCase << endl;
+
+	//	// read number of family members
+	//	inFile >> F;
+
+	//	// find maximum price of items that can be carried by each 
+	//	// family member and keep track the total of the maximum prices
+	//	for (int j = 0; j < F; j++) {
+	//		// read the maximum weight that can be carried by a
+	//		// current family member
+	//		inFile >> M;
+	//		// find maximum price of items that can be carried by
+	//		// current family member and add it to maxPrice
+	//		maxPrice += calcPriceKnapsack(W, P, N, M, knapsack[j]);
+	//	}
+
+	//	// print test case info to file
+	//	cout << "Test Case " << ++testCase << endl;
+	//	cout << "Total Price " << maxPrice << endl;
+	//	cout << "Member Items:" << endl;
+
+	//	// print the items each family member should take
+	//	for (int j = 0; j < F; j++) {
+	//		sort(knapsack[j].begin(), knapsack[j].end());
+	//		cout << j + 1 << ": ";
+	//		int sizeKnapsack = (int)knapsack[j].size();
+	//		for (int k = 0; k < sizeKnapsack; k++) {
+	//			cout << knapsack[j][k];
+	//			if (k != sizeKnapsack - 1) {
+	//				cout << " ";
+	//			}
+	//		}
+
+	//		cout << endl;
+	//	}
+
+	//	// add a space between each test case
+	//	if (testCase != T) {
+	//		cout << endl;
+	//	}
 	//}
 
+	//// close the file
+	//inFile.close();
 
-	// process T number of test cases
-	for (int i = 0; i < T; i++) {
-		int maxPrice = 0;
-		// read the number of items from the input file
-		inFile >> N;
-
-		// read the price and weight of each item into respective arrays
-		for (int j = 0; j < N; j++) {
-			inFile >> P[j];
-			inFile >> W[j];
-		}
-
-		//cout << "Test Case " << ++testCase << endl;
-
-		// read number of family members
-		inFile >> F;
-
-		// find maximum price of items that can be carried by each 
-		// family member and keep track the total of the maximum prices
-		for (int j = 0; j < F; j++) {
-			// read the maximum weight that can be carried by a
-			// current family member
-			inFile >> M;
-			// find maximum price of items that can be carried by
-			// current family member and add it to maxPrice
-			maxPrice += calcPriceKnapsack(W, P, N, M, knapsack[j]);
-		}
-
-		// print test case info to file
-		cout << "Test Case " << ++testCase << endl;
-		cout << "Total Price " << maxPrice << endl;
-		cout << "Member Items:" << endl;
-
-		// print the items each family member should take
-		for (int j = 0; j < F; j++) {
-			sort(knapsack[j].begin(), knapsack[j].end());
-			cout << j + 1 << ": ";
-			int sizeKnapsack = (int)knapsack[j].size();
-			for (int k = 0; k < sizeKnapsack; k++) {
-				cout << knapsack[j][k];
-				if (k != sizeKnapsack - 1) {
-					cout << " ";
-				}
-			}
-
-			cout << endl;
-		}
-
-		// add a space between each test case
-		if (testCase != T) {
-			cout << endl;
-		}
-	}
-
-	// close the file
-	inFile.close();
+	readFile();
 
 	return 0;
 }
