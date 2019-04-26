@@ -133,12 +133,12 @@ struct Activity **readFile() {
 	inFile->open("act.txt");
 
 	// check whether the input file is opend or not
-	if (!inFile.is_open()) {
+	if (!inFile->is_open()) {
 		cout << "can't open the file" << endl;
 		exit(-1);
 	}
 
-	while (!inFile.eof()) {
+	while (!inFile->eof()) {
 		c = fgetc(inFile);
 		if (c == '\n' || c = EOF) {
 			numOfLines++;
