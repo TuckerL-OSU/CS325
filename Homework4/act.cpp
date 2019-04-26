@@ -155,7 +155,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (i = numActivites && !eof()) {
+		if (i = numActivites && !infile.eof()) {
 			continue;
 		}
 		else {
