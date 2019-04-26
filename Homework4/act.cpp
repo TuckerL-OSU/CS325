@@ -9,6 +9,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <ostream>
+#include <ios>
 
 using namespace std;
 
@@ -94,7 +96,7 @@ void mergeSort(int arr[], int l, int r)
 
 void lastToStart(struct Activity arr[], int n) {
 	// **************
-	mergeSort;
+	//mergeSort;
 
 	int setCount = 0;
 	cout << "Set %d" << setCount++ << endl;
@@ -131,7 +133,7 @@ struct Activity **readFile() {
 	// check whether the input file is opend or not
 	if (!inFile.is_open()) {
 		cout << "can't open the file" << endl;
-		return 1;
+		exit(-1);
 	}
 
 	while (1) {
@@ -153,7 +155,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (i = numActivites && !EOF) {
+		if (i = numActivites && (!EOF)) {
 			continue;
 		}
 		else {
@@ -165,7 +167,7 @@ struct Activity **readFile() {
 		cout << "Set %d" << numSets - (numSets - 1) << endl;
 		cout << "Activities: ";
 		
-		sets = numSets;
+		int sets = numSets;
 		for (int i = 0; i < sets; i++) {
 			while (activities[numSets - (numSets - 1)][i] != null) {
 				cout << "%d " << activities[numSets - (numSets - 1)][i];
