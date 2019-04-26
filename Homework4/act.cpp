@@ -314,217 +314,121 @@
 //}
 
 #include <iostream>
-
 #include <algorithm>
-
 #include <fstream>
-
 #include <vector>
-
 using namespace std;
 
 struct myActivity {
-
 	int index;
-
 	int start_time;
-
 	int end_time;
-
 	// you can use this as alternative to compare
-
 	// Remember this!!
-
 	bool operator<(const myActivity &rhs) const { return end_time < rhs.end_time; }
-
 };
 
 vector<myActivity> ActivityList;
-
 vector<int> OutputList;
 
 /*
-
 Compare function is defined inorder to use
-
 in-built c++ sort defined in #include <algorithm>
-
 operator overloading approach
-
 */
 
-bool compare(myActivity activity1,
-
-	myActivity activity2)
-
-{
-
-	if (activity1.end_time < activity2.end_time) return true;
-
+bool compare(myActivity activity1, myActivity activity2) {
+	if (activity1.end_time <= activity2.end_time) 
+		return true;
 	return false;
-
 }
 
 // main algo
-
 // Greedy approach
-
 // Select the activity with least possible end_time at each step.
-
-void ActivitySelection(int N)
-
-{
-
+void ActivitySelection(int N) {
+	// 1 
+	// 2 4 9 11
+	// 2
+	// 2 1
 	// first activity always gets selected
-
 	int i = 0;
-
 	int OutputSize = 0;
-
 	OutputSize++;
-
 	OutputList.resize(OutputSize);
-
 	OutputList[OutputSize - 1] = ActivityList[0].index;
 
 	// Consider rest of the activities
-
-	for (int j = 1; j < N; j++)
-
-	{
-
+	for (int j = 1; j < N; j++) {
 		// If this activity has start time greater than or
-
 		// equal to the finish time of previously selected
-
 		// activity, then select it
-
-		if (ActivityList[j].start_time >= ActivityList[i].end_time)
-
-		{
-
+		if (ActivityList[j].start_time >= ActivityList[i].end_time) {
 			// cout << "here" ;
-
 			// cout << j << " " << ActivityList[j].start_time << " " << ActivityList[i].end_time << endl;
-
 			// cout << "(" << arr[j].start << ", "
-
 			// << arr[j].finish << "), ";
 
 			OutputSize++;
-
 			OutputList.resize(OutputSize);
-
 			OutputList[OutputSize - 1] = ActivityList[j].index;
 
 			i = j;
-
 		}
-
 	}
-
 }
 
-void PrintOutput(int set)
-
-{
-
+void PrintOutput(int set) {
 	int OutputSize = OutputList.size();
 
 	cout << "Set " << set << endl;
-
 	cout << "Number of activities selected = " << OutputSize << endl;
-
 	cout << "Activities:";
 
-	for (int i = 0; i < OutputSize; ++i)
-
-	{
-
+	for (int i = 0; i < OutputSize; ++i) {
 		cout << " " << OutputList[i];
-
 	}
-
 	cout << endl;
-
 }
 
-int main()
-
-{
-
+int main() {
 	string filename;
-
 	// cout << "Please provide filename: ";
-
 	// cin >> filename;
-
 	filename = "act.txt";
-
 	ifstream myFile(filename);
 
-	if (myFile.is_open())
-
-	{
-
+	if (myFile.is_open()) {
 		int N = 0; // Number of acitivities
-
 		int set = 0;
 
 		// for each set of activities
-
-		while (!myFile.eof())
-
-		{
-
+		while (!myFile.eof()) {
 			ActivityList.resize(0);
-
 			myFile >> N;
 
-			for (int i = 0; i < N; ++i)
-
-			{
-
+			for (int i = 0; i < N; ++i) {
 				ActivityList.resize(i + 1);
-
 				myFile >> ActivityList[i].index;
-
 				myFile >> ActivityList[i].start_time;
-
 				myFile >> ActivityList[i].end_time;
-
 				// cout << ActivityList[i].index << " " << ActivityList[i].start_time << " " << ActivityList[i].end_time << endl;
-
 			}
 
 			sort(ActivityList.begin(), ActivityList.end(), compare);
-
 			// cout << ActivityList.size() << endl;
-
 			// end of reading from file
-
 			// Sorting activities based on End time
 
 			ActivitySelection(N);
-
 			set++;
-
 			PrintOutput(set);
-
 		}
-
 		myFile.close();
-
-	}
-
-	else
-
-	{
-
+	} 
+	else {
 		cout << "Unable to open file";
-
 	}
 
 	return 0;
-
 }
