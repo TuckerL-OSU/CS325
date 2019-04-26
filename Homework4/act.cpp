@@ -130,7 +130,7 @@ struct Activity **readFile() {
 	int numOfLines = 0;
 
 	// open input file
-	inFile.open("act.txt");
+	inFile->open("act.txt");
 
 	// check whether the input file is opend or not
 	if (!inFile.is_open()) {
@@ -144,9 +144,9 @@ struct Activity **readFile() {
 			numOfLines++;
 		}
 	}
-	fclose(inFile);
+	inFile->close();
 
-	inFile.open("act.txt");
+	inFile->open("act.txt");
 	for (int i = 0; i < numOfLines; i++) {
 		inFile >> numActivites;
 		for (int j = 0; j < numActivites; j++) {
