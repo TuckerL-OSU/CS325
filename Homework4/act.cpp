@@ -155,7 +155,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (i = numActivites && (!EOF)) {
+		if (i = numActivites && !eof()) {
 			continue;
 		}
 		else {
@@ -169,7 +169,7 @@ struct Activity **readFile() {
 		
 		int sets = numSets;
 		for (int i = 0; i < sets; i++) {
-			while (activities[numSets - (numSets - 1)][i] != null) {
+			while (activities[numSets - (numSets - 1)][i] != NULL) {
 				cout << "%d " << activities[numSets - (numSets - 1)][i];
 			}
 		}
@@ -179,13 +179,13 @@ struct Activity **readFile() {
 }
 
 int main() {
-	int T = 0;	// num test cases
-	int testCase = 0; // counter for case number
-	int N = 0;	// num of items
-	int P[100];	// prices of items
-	int W[100];	// weights of items
-	int F = 0;	// num of people in the family
-	int M = 0;	// max weight that can be carried
+	//int T = 0;	// num test cases
+	//int testCase = 0; // counter for case number
+	//int N = 0;	// num of items
+	//int P[100];	// prices of items
+	//int W[100];	// weights of items
+	//int F = 0;	// num of people in the family
+	//int M = 0;	// max weight that can be carried
 
 	//vector<vector<int> > knapsack(100);
 	//
