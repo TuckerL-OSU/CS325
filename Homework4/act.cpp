@@ -169,7 +169,7 @@ struct Activity **readFile() {
 		
 		int sets = numSets;
 		for (int i = 0; i < sets; i++) {
-			while (activities[numSets - (numSets - 1)][i] != NULL) {
+			while (activities[numSets - (numSets - 1)][i]) {
 				cout << "%d " << activities[numSets - (numSets - 1)][i];
 			}
 		}
