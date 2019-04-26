@@ -155,7 +155,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (i = numActivites && !infile.eof()) {
+		if (i = numActivites && !inFile.eof()) {
 			continue;
 		}
 		else {
@@ -175,6 +175,7 @@ struct Activity **readFile() {
 		}
 	}
 
+	inFile.close();
 	return activities;
 }
 
