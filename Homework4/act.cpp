@@ -174,6 +174,8 @@ struct Activity **readFile() {
 			}
 		}
 	}
+
+	return activities;
 }
 
 int main() {
