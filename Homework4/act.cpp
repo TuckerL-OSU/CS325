@@ -123,9 +123,11 @@ void lastToStart(struct Activity arr[], int n) {
 struct Activity **readFile() {
 	int numActivites = 0;
 	int numSets = 0;
-	ifstream inFile;
+	ifstream *inFile;
 	struct Activity **activities;
 	char *buffer;
+	char c = ' ';
+	int numOfLines = 0;
 
 	// open input file
 	inFile.open("act.txt");
@@ -136,13 +138,18 @@ struct Activity **readFile() {
 		exit(-1);
 	}
 
-	while (1) {
-		// read in the number of possible activities in the set
-		inFile >> numActivites;
-		activities[numSets] = (struct Activity*)malloc(numActivites * sizeof(struct Activity*));
+	while (!inFile.eof()) {
+		c = fgetc(inFile);
+		if (c == '\n' || c = EOF) {
+			numOfLines++;
+		}
+	}
+	fclose(inFile);
 
-		int i = 0;
-		for (; i < numActivites; i++) {
+	inFile.open("act.txt");
+	for (int i = 0; i < numOfLines; i++) {
+		inFile >> numActivites;
+		for (int j = 0; j < numActivites; j++) {
 			int actNum = 0;
 			int start = 0;
 			int finish = 0;
@@ -155,7 +162,7 @@ struct Activity **readFile() {
 		}
 
 		numSets++;
-		if (i = numActivites && !inFile.eof()) {
+		if (!inFile->eof()) {
 			continue;
 		}
 		else {
@@ -166,14 +173,56 @@ struct Activity **readFile() {
 	while (numSets > 0) {
 		cout << "Set %d" << numSets - (numSets - 1) << endl;
 		cout << "Activities: ";
-		
+
 		int sets = numSets;
 		for (int i = 0; i < sets; i++) {
 			while (activities[numSets - (numSets - 1)][i]) {
 				cout << "%d " << activities[numSets - (numSets - 1)][i];
 			}
 		}
+		numSets--;
 	}
+
+
+	//while (1) {
+	//	// read in the number of possible activities in the set
+	//	inFile >> numActivites;
+	//	activities[numSets] = (struct Activity*)malloc(numActivites * sizeof(struct Activity*));
+
+	//	int i = 0;
+	//	for (; i < numActivites; i++) {
+	//		int actNum = 0;
+	//		int start = 0;
+	//		int finish = 0;
+
+	//		fscanf(inFile, "%d %d %d", &actNum, &start, &finish);
+	//		//fscanf(inFile, "%d %d %d", &activities[i].actNum, &activities[i].start, &activities[i].finish);
+	//		activities[numSets][i].actNum = actNum;
+	//		activities[numSets][i].start = start;
+	//		activities[numSets][i].finish = finish;
+	//	}
+
+	//	numSets++;
+	//	if (i = numActivites && !inFile.eof()) {
+	//		continue;
+	//	}
+	//	else {
+	//		break;
+	//	}
+	//}
+
+	//while (numSets > 0) {
+	//	cout << "Set %d" << numSets - (numSets - 1) << endl;
+	//	cout << "Activities: ";
+	//	
+	//	int sets = numSets;
+	//	for (int i = 0; i < sets; i++) {
+	//		while (activities[numSets - (numSets - 1)][i]) {
+	//			cout << "%d " << activities[numSets - (numSets - 1)][i];
+	//		}
+	//	}
+	//	numSets--;
+	//}
 
 	inFile.close();
 	return activities;
