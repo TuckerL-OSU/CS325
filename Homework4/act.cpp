@@ -160,6 +160,7 @@ int main() {
 		setCount++;
 
 		//delete[] &activities;
+		cout << "starting next set" << endl;
 	}
 
 	inFile.close();
