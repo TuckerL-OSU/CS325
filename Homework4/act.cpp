@@ -409,6 +409,12 @@ void lastToStart(Activity activities[], int numActivities) {
 	/*for (int i = 0; i < vec.size(); i++)
 	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
 	verify sort (debug)*/
+
+	for (x = 0; x < numActivities; x++) {
+		cout << "Activity " << activities[x].actNum << endl;
+		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
+	}
+
 	int actCounter = 0;
 	Activity subset[numActivities];
 	//add the first activity to the vector unless there are no activities in the activity.
@@ -427,7 +433,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	//continue to add the activity with the next closest start time that does not conflict
 	//with activities already added
 	for (int i = 1; i < numActivities; i++) {
-		if (activities[i].start != activities[i - 1].start && activities[i].finish <= subset[i - 1].start)
+		if (activities[i].start != activities[i - 1].start && activities[i].finish <= subset[actCounter - 1].start)
 		{
 			subset[actCounter].actNum = activities[i].actNum;
 			subset[actCounter].start = activities[i].start;
