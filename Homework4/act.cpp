@@ -417,7 +417,10 @@ void lastToStart(Activity activities[], int numActivities) {
 		return;
 	}
 	else {
-		subset[0] = activities[0];
+		subset[0].actNum = activities[0].actNum;
+		subset[0].start = activities[0].start;
+		subset[0].finish = activities[0].finish;
+
 		actCounter++;
 	}
 
