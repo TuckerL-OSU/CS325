@@ -90,8 +90,8 @@ void insertionSort(Activity arr[], int n) {
 
 void lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
-	//Activity subset[numActivities];
-	Activity subset = new Activity[numActivities];
+	Activity subset[numActivities];
+	//Activity subset = new Activity[numActivities];
 
 	
 	insertionSort(activities, numActivities);
@@ -134,7 +134,6 @@ void lastToStart(Activity activities[], int numActivities) {
 	// space between set runs
 	cout << endl << endl;
 
-	delete subset;
 }
 
 int main() {
