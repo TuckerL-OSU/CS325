@@ -153,6 +153,7 @@ int main() {
 
 		cout << "reading activites" << endl;
 		for (int i = 0; i < numActivities; i++) {
+			cout << "read " << i << endl;
 			inFile >> activities[i].actNum >> activities[i].start >> activities[i].finish;
 			//activitiesVec[i] = activities[i];
 		}
