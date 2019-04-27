@@ -440,7 +440,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << "Number of activities selected = " << actCounter << endl;
 
 	//print out activity numbers selected
-	for (int j = actCounter - 1; j >= 0; j--) {
+	for (int j = 0; j < actCounter; j++) {
 		cout << subset[j].actNum << " ";
 	}
 	// space between set runs
