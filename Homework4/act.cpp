@@ -126,6 +126,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << "Number of activities selected = " << actCounter << endl;
 
 	//print out activity numbers selected
+	cout << "Activities: ";
 	for (int j = 0; j < actCounter; j++) {
 		cout << subset[j].actNum << " ";
 	}
