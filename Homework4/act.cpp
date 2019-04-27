@@ -153,7 +153,6 @@ int main() {
 		// do this to sanitize memory for each run
 		Activity *activities = (Activity*)calloc(numActivities, sizeof(Activity));
 
-
 		inFile >> numActivities;
 
 		for (int i = 0; i < numActivities; i++) {
