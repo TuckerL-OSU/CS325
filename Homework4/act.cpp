@@ -133,7 +133,9 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << endl << endl;
 
 	for (int x = 0; x < actCounter; x++) {
-		delete subset[x];
+		delete subset[x].actNum;
+		delete subset[x].start;
+		delete subset[x].finish;
 	}
 }
 
