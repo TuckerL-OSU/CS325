@@ -459,7 +459,7 @@ int main() {
 
 		for (int i = 0; i < numActivities; i++) {
 			inFile >> activities[i].actNum >> activities[i].start >> activities[i].finish;
-			activitiesVec[i] = activities[i];
+			//activitiesVec[i] = activities[i];
 		}
 
 		cout << "Set " << setCount << endl;
