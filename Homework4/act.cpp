@@ -167,9 +167,9 @@ int main() {
 		setCount++;
 
 		for (int x = 0; x < numActivities; x++) {
-			delete[] activities[x];
+			delete activities[x];
 		}
-		delete activities;
+		delete[] activities;
 		cout << "starting next set" << endl;
 	}
 
