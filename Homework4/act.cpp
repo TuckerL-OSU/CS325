@@ -410,7 +410,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
 	verify sort (debug)*/
 
-	for (x = 0; x < numActivities; x++) {
+	for (int x = 0; x < numActivities; x++) {
 		cout << "Activity " << activities[x].actNum << endl;
 		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
 	}
