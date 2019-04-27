@@ -426,7 +426,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	for (int i = 1; i < numActivities; i++) {
 		if (activities[i].start != activities[i - 1].start && activities[i].finish <= subset[actCounter - 1].start)
 		{
-			subset[actCounter - 1] = activities[i];
+			subset[actCounter - 1] = activities[i].actNum;
 			actCounter++;
 		}
 	}
