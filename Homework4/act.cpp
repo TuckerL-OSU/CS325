@@ -410,7 +410,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
 	verify sort (debug)*/
 	int actCounter = 0;
-	Activity subset[numActivities];
+	int subset[numActivities];
 	//add the first activity to the vector unless there are no activities in the activity.
 	if (numActivities <= 0) {
 		cout << "There are no activities";
