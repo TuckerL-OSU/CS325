@@ -166,11 +166,10 @@ int main() {
 		lastToStart(activities, numActivities);
 		setCount++;
 
-		//for (int x = 0; x < numActivities; x++) {
-		//	delete activities[x];
-		//}
-		/*delete[] activities;*/
-		free(activities);
+		for (int x = 0; x < numActivities; x++) {
+			free(activities[x]);
+		}
+		delete activities;
 		cout << "starting next set" << endl;
 	}
 
