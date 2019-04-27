@@ -17,7 +17,8 @@ struct Activity {
 void insertionSort(Activity arr[], int n) {
 	Activity key[n];
 
-	for (int i = 1; i < n; i++) {
+	int i, j;
+	for (i = 1; i < n; i++) {
 		key[i].actNum = arr[i].actNum;
 		key[i].start = arr[i].start;
 		key[i].finish = arr[i].finish;
@@ -26,7 +27,7 @@ void insertionSort(Activity arr[], int n) {
 		/* Move elements of arr[0..i-1], that are
 		greater than key, to one position ahead
 		of their current position */
-		while (int j >= 0 && arr[j].finish > key[i].finish) {
+		while (j >= 0 && arr[j].finish > key[i].finish) {
 			arr[j + 1].actNum = arr[j].actNum;
 			arr[j + 1].start = arr[j].start;
 			arr[j + 1].finish = arr[j].finish;
