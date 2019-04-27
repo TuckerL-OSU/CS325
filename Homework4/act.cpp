@@ -251,7 +251,7 @@
 using namespace std;
 
 struct Activity {
-	int number, start, finish;
+	int actNum, start, finish;
 };
 
 // Merges two subarrays of arr[]. 
