@@ -143,7 +143,6 @@ int main() {
 	}
 
 	int setCount = 1;
-	cout << "entering while loop" << endl;
 	while (!inFile.eof()) {
 		int numActivities;
 		Activity activities[numActivities];
@@ -160,7 +159,7 @@ int main() {
 		lastToStart(activities, numActivities);
 		setCount++;
 
-		delete[] &activities;
+		//delete[] &activities;
 	}
 
 	inFile.close();
