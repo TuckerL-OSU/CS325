@@ -403,20 +403,15 @@ void insertionSort(Activity arr[], int n)
 //}
 
 void lastToStart(Activity activities[], int numActivities) {
-	/*sort(vec.begin(), vec.end(), compare);*/
-	//mergeSort(activities[]->finish, 0, numActivities - 1);
-	insertionSort(activities, numActivities);
-	/*for (int i = 0; i < vec.size(); i++)
-	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
-	verify sort (debug)*/
-
-	for (int x = 0; x < numActivities; x++) {
-		cout << "Activity " << activities[x].actNum << endl;
-		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
-	}
-
 	int actCounter = 0;
 	Activity subset[numActivities];
+	
+	insertionSort(activities, numActivities);
+	//for (int x = 0; x < numActivities; x++) {
+	//	cout << "Activity " << activities[x].actNum << endl;
+	//	cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
+	//}
+
 	//add the first activity to the vector unless there are no activities in the activity.
 	if (numActivities <= 0) {
 		cout << "There are no activities";
@@ -433,8 +428,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	//continue to add the activity with the next closest start time that does not conflict
 	//with activities already added
 	for (int i = 1; i < numActivities; i++) {
-		if (activities[i].start != activities[i - 1].start && activities[i].finish <= subset[actCounter - 1].start)
-		{
+		if (activities[i].start != activities[i - 1].start && activities[i].start <= subset[actCounter - 1].finish) {
 			subset[actCounter].actNum = activities[i].actNum;
 			subset[actCounter].start = activities[i].start;
 			subset[actCounter].finish = activities[i].finish;
@@ -446,8 +440,10 @@ void lastToStart(Activity activities[], int numActivities) {
 	cout << "Number of activities selected = " << actCounter << endl;
 
 	//print out activity numbers selected
-	for (int j = actCounter - 1; j >= 0; j--)
+	for (int j = actCounter - 1; j >= 0; j--) {
 		cout << subset[j].actNum << " ";
+	}
+	// space between set runs
 	cout << endl << endl;
 }
 
