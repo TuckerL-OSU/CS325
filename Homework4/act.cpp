@@ -149,7 +149,9 @@ int main() {
 	while (!inFile.eof()) {
 		int numActivities;
 		//Activity activities[numActivities];
-		Activity *activities = new Activity[numActivities];
+		//Activity *activities = new Activity[numActivities];
+		Activity *activities = (Activity*)calloc(i, numActivities);
+
 		//vector<Activity> activitiesVec(numActivities);
 
 		cout << "reading numActivities" << endl;
@@ -166,10 +168,10 @@ int main() {
 		lastToStart(activities, numActivities);
 		setCount++;
 
-		for (int x = 0; x < numActivities; x++) {
-			free(activities[x]);
-		}
-		delete activities;
+		//for (int x = 0; x < numActivities; x++) {
+		//	free(activities[x]);
+		//}
+		//delete activities;
 		cout << "starting next set" << endl;
 	}
 
