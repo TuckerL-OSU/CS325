@@ -150,7 +150,7 @@ int main() {
 		int numActivities;
 		//Activity activities[numActivities];
 		//Activity *activities = new Activity[numActivities];
-		Activity *activities = (Activity*)calloc(i, numActivities);
+		Activity *activities = (Activity*)calloc(numActivities, sizeof(Activity));
 
 		//vector<Activity> activitiesVec(numActivities);
 
