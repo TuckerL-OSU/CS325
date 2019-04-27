@@ -377,7 +377,7 @@ void mergeSort(int arr[], int l, int r)
 
 void lastToStart(Activity activities[], int numActivities) {
 	/*sort(vec.begin(), vec.end(), compare);*/
-	mergeSort(activities->finish, 0, numActivities - 1);
+	mergeSort(activities[]->finish, 0, numActivities - 1);
 	/*for (int i = 0; i < vec.size(); i++)
 	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
 	verify sort (debug)*/
