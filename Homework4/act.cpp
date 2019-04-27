@@ -91,8 +91,6 @@ void insertionSort(Activity arr[], int n) {
 void lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
 	Activity subset[numActivities];
-	//Activity subset = new Activity[numActivities];
-
 	
 	insertionSort(activities, numActivities);
 	//for (int x = 0; x < numActivities; x++) {
@@ -133,7 +131,6 @@ void lastToStart(Activity activities[], int numActivities) {
 	}
 	// space between set runs
 	cout << endl << endl;
-
 }
 
 int main() {
@@ -148,17 +145,13 @@ int main() {
 	int setCount = 1;
 	while (!inFile.eof()) {
 		int numActivities;
-		//Activity activities[numActivities];
-		//Activity *activities = new Activity[numActivities];
+		
 		// do this to sanitize memory for each run
 		Activity *activities = (Activity*)calloc(numActivities, sizeof(Activity));
 
-		//vector<Activity> activitiesVec(numActivities);
 
-		cout << "reading numActivities" << endl;
 		inFile >> numActivities;
 
-		cout << "reading activites" << endl;
 		for (int i = 0; i < numActivities; i++) {
 			//cout << "read " << i << endl;
 			inFile >> activities[i].actNum >> activities[i].start >> activities[i].finish;
@@ -168,8 +161,6 @@ int main() {
 		cout << "Set " << setCount << endl;
 		lastToStart(activities, numActivities);
 		setCount++;
-
-		cout << "starting next set" << endl;
 	}
 
 	inFile.close();
