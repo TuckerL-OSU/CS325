@@ -88,7 +88,7 @@ void insertionSort(Activity arr[], int n) {
 //	cout << endl << endl;
 //}
 
-void lastToStart(Activity activities[], int numActivities) {
+Activity *lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
 	Activity subset[numActivities];
 	
@@ -123,9 +123,14 @@ void lastToStart(Activity activities[], int numActivities) {
 		}
 	}
 
+	return subset;
+}
+
+void printSet(Activity set[]) {
 	cout << "Number of activities selected = " << actCounter << endl;
 
 	//print out activity numbers selected
+	cout << "Activities: ";
 	for (int j = 0; j < actCounter; j++) {
 		cout << subset[j].actNum << " ";
 	}
@@ -159,7 +164,7 @@ int main() {
 		}
 
 		cout << "Set " << setCount << endl;
-		lastToStart(activities, numActivities);
+		printSet(lastToStart(activities, numActivities);)
 		setCount++;
 	}
 
