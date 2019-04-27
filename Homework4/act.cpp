@@ -131,6 +131,10 @@ void lastToStart(Activity activities[], int numActivities) {
 	}
 	// space between set runs
 	cout << endl << endl;
+
+	for (int x = 0; x < actCounter; x++) {
+		delete subset[x];
+	}
 }
 
 int main() {
