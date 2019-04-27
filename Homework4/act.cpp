@@ -330,10 +330,10 @@ struct Activity {
 
 void insertionSort(Activity arr[], int n)
 {
-	Activity key[n];
+	Activity key[];
 	int i, j;
 	for (i = 1; i < n; i++) {
-		key[i] = arr + i;
+		key[i] = arr[i];
 		j = i - 1;
 
 		/* Move elements of arr[0..i-1], that are
