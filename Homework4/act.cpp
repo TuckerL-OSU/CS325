@@ -148,8 +148,10 @@ int main() {
 		Activity activities[numActivities];
 		//vector<Activity> activitiesVec(numActivities);
 
+		cout << "reading numActivities" << endl;
 		inFile >> numActivities;
 
+		cout << "reading activites" << endl;
 		for (int i = 0; i < numActivities; i++) {
 			inFile >> activities[i].actNum >> activities[i].start >> activities[i].finish;
 			//activitiesVec[i] = activities[i];
