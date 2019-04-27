@@ -127,12 +127,12 @@ Activity *lastToStart(Activity activities[], int numActivities) {
 }
 
 void printSet(Activity set[]) {
-	cout << "Number of activities selected = " << actCounter << endl;
+	cout << "Number of activities selected = " << set.size() << endl;
 
 	//print out activity numbers selected
 	cout << "Activities: ";
-	for (int j = 0; j < actCounter; j++) {
-		cout << subset[j].actNum << " ";
+	for (int j = 0; j < set.size(); j++) {
+		cout << set[j].actNum << " ";
 	}
 	// space between set runs
 	cout << endl << endl;
