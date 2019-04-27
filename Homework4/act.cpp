@@ -150,6 +150,7 @@ int main() {
 		int numActivities;
 		//Activity activities[numActivities];
 		//Activity *activities = new Activity[numActivities];
+		// do this to sanitize memory
 		Activity *activities = (Activity*)calloc(numActivities, sizeof(Activity));
 
 		//vector<Activity> activitiesVec(numActivities);
@@ -168,10 +169,7 @@ int main() {
 		lastToStart(activities, numActivities);
 		setCount++;
 
-		//for (int x = 0; x < numActivities; x++) {
-		//	free(activities[x]);
-		//}
-		//delete activities;
+		free(activities);
 		cout << "starting next set" << endl;
 	}
 
