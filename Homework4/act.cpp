@@ -449,10 +449,11 @@ int main() {
 	}
 
 	int setCount = 1;
+	cout << "entering while loop" << endl;
 	while (!inFile.eof()) {
 		int numActivities;
 		Activity activities[numActivities];
-		vector<Activity> activitiesVec(numActivities);
+		//vector<Activity> activitiesVec(numActivities);
 
 		inFile >> numActivities;
 
