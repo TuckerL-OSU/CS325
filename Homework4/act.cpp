@@ -90,8 +90,8 @@ void insertionSort(Activity arr[], int n) {
 
 void lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
-	//Activity subset[numActivities];
-	Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
+	Activity subset[numActivities];
+	//Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
 	
 	insertionSort(activities, numActivities);
 	//for (int x = 0; x < numActivities; x++) {
