@@ -131,12 +131,6 @@ void lastToStart(Activity activities[], int numActivities) {
 	}
 	// space between set runs
 	cout << endl << endl;
-
-	for (int x = 0; x < actCounter; x++) {
-		delete subset[x].actNum;
-		delete subset[x].start;
-		delete subset[x].finish;
-	}
 }
 
 int main() {
@@ -165,6 +159,8 @@ int main() {
 		cout << "Set " << setCount << endl;
 		lastToStart(activities, numActivities);
 		setCount++;
+
+		delete activities;
 	}
 
 	inFile.close();
