@@ -169,7 +169,8 @@ int main() {
 		//for (int x = 0; x < numActivities; x++) {
 		//	delete activities[x];
 		//}
-		delete[] activities;
+		/*delete[] activities;*/
+		free(activities);
 		cout << "starting next set" << endl;
 	}
 
