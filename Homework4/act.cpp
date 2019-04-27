@@ -160,7 +160,7 @@ int main() {
 		lastToStart(activities, numActivities);
 		setCount++;
 
-		delete activities;
+		delete[] activities;
 	}
 
 	inFile.close();
