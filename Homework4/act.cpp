@@ -96,7 +96,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	insertionSort(activities, numActivities);
 	for (int x = 0; x < numActivities; x++) {
 		cout << "Activity " << activities[x].actNum << endl;
-		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
+		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl << endl;
 	}
 
 	//add the first activity to the vector unless there are no activities in the activity.
