@@ -94,10 +94,10 @@ void lastToStart(Activity activities[], int numActivities) {
 	//Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
 	
 	insertionSort(activities, numActivities);
-	//for (int x = 0; x < numActivities; x++) {
-	//	cout << "Activity " << activities[x].actNum << endl;
-	//	cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
-	//}
+	for (int x = 0; x < numActivities; x++) {
+		cout << "Activity " << activities[x].actNum << endl;
+		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
+	}
 
 	//add the first activity to the vector unless there are no activities in the activity.
 	if (numActivities <= 0) {
@@ -114,34 +114,34 @@ void lastToStart(Activity activities[], int numActivities) {
 
 	//continue to add the activity with the next closest start time that does not conflict
 	//with activities already added
-	for (int i = 1; i < numActivities; i++) {
-		if (activities[i].start != activities[i - 1].start) {
-			if (activities[i].start >= subset[actCounter - 1].finish) {
-				subset[actCounter].actNum = activities[i].actNum;
-				subset[actCounter].start = activities[i].start;
-				subset[actCounter].finish = activities[i].finish;
+	//for (int i = 1; i < numActivities; i++) {
+	//	if (activities[i].start != activities[i - 1].start) {
+	//		if (activities[i].start >= subset[actCounter - 1].finish) {
+	//			subset[actCounter].actNum = activities[i].actNum;
+	//			subset[actCounter].start = activities[i].start;
+	//			subset[actCounter].finish = activities[i].finish;
 
-				actCounter++;
-				//continue;
-			}
-			//else if (activities[i].start >= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].start) {
-			//	subset[actCounter - 1].actNum = activities[i].actNum;
-			//	subset[actCounter - 1].start = activities[i].start;
-			//	subset[actCounter - 1].finish = activities[i].finish;
-			//}
-			else if (activities[i].start >= subset[actCounter - 1].start && activities[i].start <= subset[actCounter - 1].finish) {
-				subset[actCounter - 1].actNum = activities[i].actNum;
-				subset[actCounter - 1].start = activities[i].start;
-				subset[actCounter - 1].finish = activities[i].finish;
-			}
-			//else if (activities[i].finish >= subset[actCounter - 1].finish) {
-			//	subset[actCounter - 1].actNum = activities[i].actNum;
-			//	subset[actCounter - 1].start = activities[i].start;
-			//	subset[actCounter - 1].finish = activities[i].finish;
-			//}
+	//			actCounter++;
+	//			//continue;
+	//		}
+	//		//else if (activities[i].start >= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].start) {
+	//		//	subset[actCounter - 1].actNum = activities[i].actNum;
+	//		//	subset[actCounter - 1].start = activities[i].start;
+	//		//	subset[actCounter - 1].finish = activities[i].finish;
+	//		//}
+	//		else if (activities[i].start >= subset[actCounter - 1].start && activities[i].start <= subset[actCounter - 1].finish) {
+	//			subset[actCounter - 1].actNum = activities[i].actNum;
+	//			subset[actCounter - 1].start = activities[i].start;
+	//			subset[actCounter - 1].finish = activities[i].finish;
+	//		}
+	//		//else if (activities[i].finish >= subset[actCounter - 1].finish) {
+	//		//	subset[actCounter - 1].actNum = activities[i].actNum;
+	//		//	subset[actCounter - 1].start = activities[i].start;
+	//		//	subset[actCounter - 1].finish = activities[i].finish;
+	//		//}
 
-		}
-	}
+	//	}
+	//}
 
 	cout << "Number of activities selected = " << actCounter << endl;
 
