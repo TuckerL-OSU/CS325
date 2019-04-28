@@ -1,8 +1,7 @@
 // Tucker Lavell
 // CS325 Sp 2019
 // Homework 4 - act.cpp
-// merge sort from homework 1
-// recieved help from friend Dan Drapp
+// insertion sort from homework 1
 
 #include <iostream>
 #include <string>
@@ -40,58 +39,9 @@ void insertionSort(Activity arr[], int n) {
 	}
 }
 
-
-//comparator helper function for sort
-//int compare(Activity x, Activity y) {
-//	return x.start > y.start;
-//}
-
-/***********************************************************************
-** Description: lastToStart() finds the optimal solution to maximizing
-** the amount of activities but finding the activity that starts last
-** and working backwards toward the front and choosing the activity with
-** the next closest starting time that doesn't conflict with already
-** selected options.
-*************************************************************************/
-//void lastToStart(vector<Activity>& vec) {
-//	sort(vec.begin(), vec.end(), compare);
-//	/*for (int i = 0; i < vec.size(); i++)
-//	cout << vec[i].number << " " << vec[i].start << " " << vec[i].finish << endl;
-//	verify sort (debug)*/
-//	int actCounter = 0;
-//	vector<Activity> tracker;
-//	//add the first activity to the vector unless there are no activities in the activity.
-//	if (vec.size() <= 0) {
-//		cout << "There are no activities";
-//		return;
-//	}
-//	else {
-//		tracker.push_back(vec[0]);
-//		actCounter++;
-//	}
-//
-//	//continue to add the activity with the next closest start time that does not conflict
-//	//with activities already added
-//	for (int i = 1; i < vec.size(); i++) {
-//		if (vec[i].start != vec[i - 1].start && vec[i].finish <= tracker.back().start)
-//		{
-//			tracker.push_back(vec[i]);
-//			actCounter++;
-//		}
-//	}
-//
-//	cout << "Number of activities selected = " << actCounter << endl;
-//
-//	//print out activity numbers selected
-//	for (int j = tracker.size() - 1; j >= 0; j--)
-//		cout << tracker[j].number << " ";
-//	cout << endl << endl;
-//}
-
 void lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
 	Activity subset[numActivities];
-	//Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
 
 	insertionSort(activities, numActivities);
 	//for (int x = 0; x < numActivities; x++) {
@@ -114,7 +64,6 @@ void lastToStart(Activity activities[], int numActivities) {
 
 	//continue to add the activity with the next closest start time that does not conflict
 	//with activities already added
-	// 2 8 11
 	for (int i = 1; i < numActivities; i++) {
 		if (activities[i].start >= subset[actCounter - 1].finish) {
 			subset[actCounter].actNum = activities[i].actNum;
@@ -168,9 +117,7 @@ int main() {
 		inFile >> numActivities;
 
 		for (int i = 0; i < numActivities; i++) {
-			//cout << "read " << i << endl;
 			inFile >> activities[i].actNum >> activities[i].start >> activities[i].finish;
-			//activitiesVec[i] = activities[i];
 		}
 
 		cout << "Set " << setCount << endl;
