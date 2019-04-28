@@ -116,7 +116,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	//with activities already added
 	// 2 8 11
 	for (int i = 1; i < numActivities; i++) {
-		if (activities[i].start != activities[i - 1].start) {
+		//if (activities[i].start != activities[i - 1].start) {
 			// this gives us 1 4 8 11
 			if (activities[i].start >= subset[actCounter - 1].finish) {
 				subset[actCounter].actNum = activities[i].actNum;
@@ -161,7 +161,7 @@ void lastToStart(Activity activities[], int numActivities) {
 			//	subset[actCounter - 1].start = activities[i].start;
 			//	subset[actCounter - 1].finish = activities[i].finish;
 			//}
-		}
+		//}
 		// 1 4 9 11
 		else if (activities[i].start >= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].start) {
 			subset[actCounter - 1].actNum = activities[i].actNum;
