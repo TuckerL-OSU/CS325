@@ -134,13 +134,13 @@ void lastToStart(Activity activities[], int numActivities) {
 			//	subset[actCounter - 1].finish = activities[i].finish;
 			//}
 
-			else if (activities[i].start <= subset[actCounter - 1].finish && activities[i].finish >= subset[actCounter - 1].finish) {
+			/*else if (activities[i].start <= subset[actCounter - 1].finish && activities[i].finish >= subset[actCounter - 1].finish) {
 				subset[actCounter].actNum = activities[i].actNum;
 				subset[actCounter].start = activities[i].start;
 				subset[actCounter].finish = activities[i].finish;
 
 				actCounter++;
-			}
+			}*/
 
 
 
