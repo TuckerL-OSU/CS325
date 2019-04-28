@@ -92,7 +92,7 @@ void lastToStart(Activity activities[], int numActivities) {
 	int actCounter = 0;
 	Activity subset[numActivities];
 	//Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
-	
+
 	insertionSort(activities, numActivities);
 	//for (int x = 0; x < numActivities; x++) {
 	//	cout << "Activity " << activities[x].actNum << endl;
@@ -116,59 +116,18 @@ void lastToStart(Activity activities[], int numActivities) {
 	//with activities already added
 	// 2 8 11
 	for (int i = 1; i < numActivities; i++) {
-		//if (activities[i].start != activities[i - 1].start) {
-			// this gives us 1 4 8 11
-			if (activities[i].start >= subset[actCounter - 1].finish) {
-				subset[actCounter].actNum = activities[i].actNum;
-				subset[actCounter].start = activities[i].start;
-				subset[actCounter].finish = activities[i].finish;
+		if (activities[i].start >= subset[actCounter - 1].finish) {
+			subset[actCounter].actNum = activities[i].actNum;
+			subset[actCounter].start = activities[i].start;
+			subset[actCounter].finish = activities[i].finish;
 
-				actCounter++;
-				//continue;
-			}
-
-			// 11
-			//else if (activities[i].start >= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].start) {
-			//	subset[actCounter - 1].actNum = activities[i].actNum;
-			//	subset[actCounter - 1].start = activities[i].start;
-			//	subset[actCounter - 1].finish = activities[i].finish;
-			//}
-
-			/*else if (activities[i].start <= subset[actCounter - 1].finish && activities[i].finish >= subset[actCounter - 1].finish) {
-				subset[actCounter].actNum = activities[i].actNum;
-				subset[actCounter].start = activities[i].start;
-				subset[actCounter].finish = activities[i].finish;
-
-				actCounter++;
-			}*/
-
-
-
-			//if (/*activities[i].start >= subset[actCounter - 1].start &&*/ activities[i].finish <= subset[actCounter - 1].finish) {
-			//	subset[actCounter - 1].actNum = activities[i].actNum;
-			//	subset[actCounter - 1].start = activities[i].start;
-			//	subset[actCounter - 1].finish = activities[i].finish;
-			//}
-			//else if (activities[i].finish >= subset[actCounter - 1].finish && activities[i].start <= subset[actCounter - 1].start) {
-			//	subset[actCounter].actNum = activities[i].actNum;
-			//	subset[actCounter].start = activities[i].start;
-			//	subset[actCounter].finish = activities[i].finish;
-
-			//	actCounter++;
-			//}
-			//else if (activities[i].start <= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].finish) {
-			//	subset[actCounter - 1].actNum = activities[i].actNum;
-			//	subset[actCounter - 1].start = activities[i].start;
-			//	subset[actCounter - 1].finish = activities[i].finish;
-			//}
-		//}
-		// 1 4 9 11
+			actCounter++;
+		}
+		// overwriting previous because potentially more optimal solution
 		else if (activities[i].start >= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].start) {
 			subset[actCounter - 1].actNum = activities[i].actNum;
 			subset[actCounter - 1].start = activities[i].start;
 			subset[actCounter - 1].finish = activities[i].finish;
-
-			//actCounter++;
 		}
 		else if (activities[i].start <= subset[actCounter - 1].start && activities[i].finish >= subset[actCounter - 1].finish) {
 			subset[actCounter].actNum = activities[i].actNum;
@@ -202,7 +161,7 @@ int main() {
 	int setCount = 1;
 	while (!inFile.eof()) {
 		int numActivities;
-		
+
 		// do this to sanitize memory for each run
 		Activity *activities = (Activity*)calloc(numActivities, sizeof(Activity));
 
