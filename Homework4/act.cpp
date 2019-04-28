@@ -94,10 +94,10 @@ void lastToStart(Activity activities[], int numActivities) {
 	//Activity *subset = (Activity*)calloc(numActivities, sizeof(Activity));
 	
 	insertionSort(activities, numActivities);
-	for (int x = 0; x < numActivities; x++) {
-		cout << "Activity " << activities[x].actNum << endl;
-		cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
-	}
+	//for (int x = 0; x < numActivities; x++) {
+	//	cout << "Activity " << activities[x].actNum << endl;
+	//	cout << "Start: " << activities[x].start << "\tFinish: " << activities[x].finish << endl;
+	//}
 
 	//add the first activity to the vector unless there are no activities in the activity.
 	if (numActivities <= 0) {
