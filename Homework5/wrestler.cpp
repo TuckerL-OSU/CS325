@@ -25,7 +25,7 @@ struct wrestler {
 };
 
 // initialize our graph, here we are only setting up the vertices
-void createVertices(vector < vector <wrestler*> >& graph, vector <string> values) {
+void createVertices(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 	for (int x = 0; x < (int)graph.size(); x++) {
 		// creating the new vertex
 		graph[x].push_back(new wrestler);
@@ -41,9 +41,9 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> values
 }
 
 // get the index based on the wrestlers name
-int getIndex(vector<string> values, string source) {
+int getIndex(vector<string> values, string name) {
 	for (int x = 0; x < (int)values.size(); x++) {
-		if (source == values[x]) {
+		if (name == values[x]) {
 			return x;
 		}
 	}
@@ -51,9 +51,9 @@ int getIndex(vector<string> values, string source) {
 }
 
 // make connections within the graph
-void addEdge(vector < vector <wrestler*> >& graph, string A, string B, vector <string> reference) {
-	int wrestler = getIndex(reference, A);
-	int rival = getIndex(reference, B);
+void addEdge(vector < vector <wrestler*> >& graph, string wrestlerName, string rivalName, vector <string> namesList) {
+	int wrestler = getIndex(namesList, wrestlerName);
+	int rival = getIndex(namesList, rivalName);
 
 	// creating the edges 
 	graph[wrestler].push_back(graph[rival][0]);
@@ -61,7 +61,7 @@ void addEdge(vector < vector <wrestler*> >& graph, string A, string B, vector <s
 }
 
 // check if our graph of wrestlers can provide non conflicting rivalries
-void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
+void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 	vector <string> babyFaces;
 	vector <string> heels;
 
@@ -110,7 +110,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 						}
 
 						// lastly we add the undiscovered neighboring vertex to our queue
-						list.push(graph[getIndex(reference, currentNode[x]->name)]);
+						list.push(graph[getIndex(namesList, currentNode[x]->name)]);
 					}
 				}
 			}
@@ -187,9 +187,9 @@ int main(int argc, char* argv[]) {
 		// making the connections for our graph
 		for (int x = 0; x < edges; x++) {
 			// getting the vertices involved in the pair
-			string a, b;
-			inFile >> a;
-			inFile >> b;
+			string wrestler, rival;
+			inFile >> wrestler;
+			inFile >> rival;
 
 			// making the connections for our graph
 			addEdge(graph, a, b, names);
