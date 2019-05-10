@@ -1,7 +1,7 @@
 // Tucker Lavell
 // CS325 Sp 2019
 // Homework 5 - wrestler.cpp
-// adapted from bfs
+// adapted from bfs, with help from friend Dan Drapp
 
 #include <iostream>
 #include <string>
