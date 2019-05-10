@@ -192,7 +192,7 @@ int main(int argc, char* argv[]) {
 			inFile >> rival;
 
 			// making the connections for our graph
-			addEdge(graph, a, b, names);
+			addEdge(graph, wrestler, rival, names);
 		}
 
 		bfs(graph, names);
