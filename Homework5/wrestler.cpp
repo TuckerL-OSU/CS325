@@ -130,29 +130,9 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 	cout << endl;
 }
 
-// method to showcase the graph layout
-void viewGraph(vector < vector <wrestler*> > graph)
-{
-	for (int x = 0; x < (int)graph.size(); x++)
-	{
-		cout << "Current Node: " << graph[x][0]->name << endl;
-
-		if (graph[x].size() > 1)
-		{
-			cout << "Connections are:" << endl;
-		}
-
-		for (int y = 1; y < (int)graph[x].size(); y++)
-		{
-			cout << graph[x][y]->name << " " << graph[x][y]->team << " " << graph[x][y]->visited << endl;
-		}
-		cout << endl;
-	}
-}
-
 int main(int argc, char* argv[]) {
 	if (argc != 2) {
-		cout << "There is an error please, specify a file in the command line next to the executable name" << endl;
+		cout << "Incorrect Arguments. Please use: \"./wrestler [file].txt\"" << endl;
 		return 0;
 	}
 
@@ -196,7 +176,6 @@ int main(int argc, char* argv[]) {
 		}
 
 		bfs(graph, names);
-		viewGraph(graph);
 	}
 
 	inFile.close();
