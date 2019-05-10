@@ -6,14 +6,19 @@
 #include <sstream>
 using namespace std;
 
-const string unkown = "unkown";
-const string baby = "babyface";
-const string heel = "heel";
+enum Role {
+	NONE,
+	BABY,
+	HEEL
+};
+//const string unkown = "unkown";
+//const string baby = "babyface";
+//const string heel = "heel";
 
 // struct to represent the vertices
 struct wrestler {
 	string name;
-	string role;
+	Role role;
 	bool visited;
 };
 
@@ -27,7 +32,7 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> values
 		graph[x][0]->name = values[x];
 
 		// as a starter each wrestler will not be assigned a role
-		graph[x][0]->role = unkown;
+		graph[x][0]->role = NONE;
 
 		graph[x][0]->visited = false;
 	}
@@ -82,7 +87,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	for (int i = 0; i < graph.size(); i++) {
 		if (!graph[i][0]->visited) {
 			// we begin at the initial vertex, we also set the starting vertex to have the role of a babyface
-			graph[i][0]->role = baby;
+			graph[i][0]->role = BABY;
 
 			// we also add it to our list of baby faces
 			babyFaces.push_back(graph[i][0]->name);
@@ -107,13 +112,13 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 						if they are unknown, than set it to the opposite role from the current vertex
 						if they have the same role as the predecessor than we end the traversal because this signals a conflict
 						*/
-						if (currentNode[x]->role == unkown && currentNode[0]->role == baby) {
-							currentNode[x]->role = heel; // set the neighbor to heel if the predecessor is a babyface
+						if (currentNode[x]->role == NONE && currentNode[0]->role == BABY) {
+							currentNode[x]->role = HEEL; // set the neighbor to heel if the predecessor is a babyface
 
 							heels.push_back(currentNode[x]->name); // updating our list of heels
 						}
-						else if (currentNode[x]->role == unkown && currentNode[0]->role == heel) {
-							currentNode[x]->role = baby; // set the neighbor to babyface if the predecessor is a heel
+						else if (currentNode[x]->role == NONE && currentNode[0]->role == HEEL) {
+							currentNode[x]->role = BABY; // set the neighbor to babyface if the predecessor is a heel
 
 							babyFaces.push_back(currentNode[x]->name);  // updating our list of babyfaces
 						}
