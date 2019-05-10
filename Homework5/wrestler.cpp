@@ -10,20 +10,16 @@ const string unkown = "unkown";
 const string baby = "babyface";
 const string heel = "heel";
 
-// structure to represent the vertices
-struct wrestler
-{
+// struct to represent the vertices
+struct wrestler {
 	string name;
 	string role;
 	bool visited;
 };
 
 // method to initialize our graph, here we are only setting up the vertices
-void createVertices(vector < vector <wrestler*> >& graph, vector <string> values)
-{
-
-	for (int x = 0; x < graph.size(); x++)
-	{
+void createVertices(vector < vector <wrestler*> >& graph, vector <string> values) {
+	for (int x = 0; x < graph.size(); x++) {
 		// creating the new vertex
 		graph[x].push_back(new wrestler);
 
@@ -38,13 +34,10 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> values
 }
 
 
-// quick hash function to get the index based on the name provided
-int getIndex(vector<string> values, string source)
-{
-	for (int x = 0; x < values.size(); x++)
-	{
-		if (source == values[x])
-		{
+// get the index based on the wrestlers name
+int getIndex(vector<string> values, string source) {
+	for (int x = 0; x < values.size(); x++) {
+		if (source == values[x]) {
 			return x;
 		}
 	}
@@ -58,8 +51,7 @@ for the input we take the names of the wrestlers involved in the pair
 we utilize a hash function to quickly extract the node location/index
 we then create the pair by modifying each separate list
 */
-void addPair(vector < vector <wrestler*> >& graph, string A, string B, vector <string> reference)
-{
+void addPair(vector < vector <wrestler*> >& graph, string A, string B, vector <string> reference) {
 	int source = getIndex(reference, A);
 	int partner = getIndex(reference, B);
 
@@ -80,18 +72,15 @@ we continue this process until either we encounter a conflict or when all undisc
 a conflict occurs if the current vertex is heel and has a connection to another heel vertex or vice versa
 basically if the neighbors have the same role as the predecessor then a conflict has been found
 */
-void checkPairs(vector < vector <wrestler*> >& graph, vector <string> reference)
-{
+void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	vector <string> babyFaces;
 	vector <string> heels;
 
 	queue < vector <wrestler*> > list;
 
 	// analyze all the undiscovered vertices in our graph
-	for (int i = 0; i < graph.size(); i++)
-	{
-		if (!graph[i][0]->visited)
-		{
+	for (int i = 0; i < graph.size(); i++) {
+		if (!graph[i][0]->visited) {
 			// we begin at the initial vertex, we also set the starting vertex to have the role of a babyface
 			graph[i][0]->role = baby;
 
@@ -101,19 +90,16 @@ void checkPairs(vector < vector <wrestler*> >& graph, vector <string> reference)
 			// add it to our queue
 			list.push(graph[i]);
 
-			while (!list.empty())
-			{
+			while (!list.empty()) {
 				// extract the current vertex from our queue
 				vector <wrestler*> currentNode = list.front();
 				currentNode[0]->visited = true;
 				list.pop();
 
 				// here we now check for the neighbors of this vertex
-				for (int x = 1; x < currentNode.size(); x++)
-				{
+				for (int x = 1; x < currentNode.size(); x++) {
 					// condition to check if the neighbor has been previously discovered
-					if (currentNode[x]->visited == false)
-					{
+					if (currentNode[x]->visited == false) {
 						// here is how we assign the roles
 						/*
 						basically if the current wrestler is a babyface than its neighbors must be heels
@@ -121,20 +107,17 @@ void checkPairs(vector < vector <wrestler*> >& graph, vector <string> reference)
 						if they are unknown, than set it to the opposite role from the current vertex
 						if they have the same role as the predecessor than we end the traversal because this signals a conflict
 						*/
-						if (currentNode[x]->role == unkown && currentNode[0]->role == baby)
-						{
+						if (currentNode[x]->role == unkown && currentNode[0]->role == baby) {
 							currentNode[x]->role = heel; // set the neighbor to heel if the predecessor is a babyface
 
 							heels.push_back(currentNode[x]->name); // updating our list of heels
 						}
-						else if (currentNode[x]->role == unkown && currentNode[0]->role == heel)
-						{
+						else if (currentNode[x]->role == unkown && currentNode[0]->role == heel) {
 							currentNode[x]->role = baby; // set the neighbor to babyface if the predecessor is a heel
 
 							babyFaces.push_back(currentNode[x]->name);  // updating our list of babyfaces
 						}
-						else if (currentNode[x]->role == currentNode[0]->role)
-						{
+						else if (currentNode[x]->role == currentNode[0]->role) {
 							// conflict found
 							cout << "Impossible" << endl;
 							return;
@@ -151,13 +134,11 @@ void checkPairs(vector < vector <wrestler*> >& graph, vector <string> reference)
 	// showcasing the result
 	cout << "Yes possible" << endl;
 	cout << "Babyfaces: ";
-	for (int x = 0; x < babyFaces.size(); x++)
-	{
+	for (int x = 0; x < babyFaces.size(); x++) {
 		cout << babyFaces[x] << " ";
 	}
 	cout << endl << "Heels: ";
-	for (int x = 0; x < heels.size(); x++)
-	{
+	for (int x = 0; x < heels.size(); x++) {
 		cout << heels[x] << " ";
 	}
 	cout << endl;
@@ -183,34 +164,30 @@ void checkPairs(vector < vector <wrestler*> >& graph, vector <string> reference)
 //	}
 //}
 
-int main(int argc, char* argv[])
-{
-	if (argc != 2)
-	{
+int main(int argc, char* argv[]) {
+	if (argc != 2) {
 		cout << "There is an error please, specify a file in the command line next to the executable name" << endl;
 		return 0;
 	}
 
 	// setting the file
-	ifstream readFile(argv[1]);
+	ifstream inFile(argv[1]);
 
-	while (!readFile.eof())
-	{
+	while (!inFile.eof()) {
 		int size;
 		int edges;
 		string currentName;
 		vector <string> names;
 
 		// getting the number of vertices
-		readFile >> size;
+		inFile >> size;
 
 		// declaring our graph
 		vector < vector < wrestler*> > graph(size);
 
 		// storing the names
-		for (int x = 0; x < size; x++)
-		{
-			readFile >> currentName;
+		for (int x = 0; x < size; x++) {
+			inFile >> currentName;
 
 			names.push_back(currentName);
 		}
@@ -218,27 +195,24 @@ int main(int argc, char* argv[])
 		// creating the vertices for our graph
 		createVertices(graph, names);
 
-
-
 		// getting the number of pairs/edge connections
-		readFile >> edges;
+		inFile >> edges;
 
 		// making the connections for our graph
-		for (int x = 0; x < edges; x++)
-		{
+		for (int x = 0; x < edges; x++) {
 			// getting the vertices involved in the pair
 			string a, b;
-			readFile >> a;
-			readFile >> b;
+			inFile >> a;
+			inFile >> b;
 
 			// making the connections for our graph
 			addPair(graph, a, b, names);
 		}
 
-		checkPairs(graph, names);
+		bfs(graph, names);
 	}
 
-	readFile.close();
+	inFile.close();
 
 	return 0;
 }
