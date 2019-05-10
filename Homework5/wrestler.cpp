@@ -133,7 +133,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 // method to showcase the graph layout
 void viewGraph(vector < vector <wrestler*> > graph)
 {
-	for (int x = 0; x < graph.size(); x++)
+	for (int x = 0; x < (int)graph.size(); x++)
 	{
 		cout << "Current Node: " << graph[x][0]->name << endl;
 
@@ -142,7 +142,7 @@ void viewGraph(vector < vector <wrestler*> > graph)
 			cout << "Connections are:" << endl;
 		}
 
-		for (int y = 1; y < graph[x].size(); y++)
+		for (int y = 1; y < (int)graph[x].size(); y++)
 		{
 			cout << graph[x][y]->name << " " << graph[x][y]->team << " " << graph[x][y]->visited << endl;
 		}
