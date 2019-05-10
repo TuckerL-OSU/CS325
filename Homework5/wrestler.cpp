@@ -1,3 +1,8 @@
+// Tucker Lavell
+// CS325 Sp 2019
+// Homework 5 - wrestler.cpp
+// adapted from bfs
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,33 +17,32 @@ enum Team {
 	HEEL
 };
 
-// struct to represent the vertices
+// struct to represent each wrestler(vertices)
 struct wrestler {
 	string name;
 	Team team;
 	bool visited;
 };
 
-// method to initialize our graph, here we are only setting up the vertices
+// initialize our graph, here we are only setting up the vertices
 void createVertices(vector < vector <wrestler*> >& graph, vector <string> values) {
-	for (int x = 0; x < graph.size(); x++) {
+	for (int x = 0; x < (int)graph.size(); x++) {
 		// creating the new vertex
 		graph[x].push_back(new wrestler);
 
 		// we assign the name to each node/vertex
 		graph[x][0]->name = values[x];
 
-		// as a starter each wrestler will not be assigned a team
+		// as a start each wrestler will not be assigned a team
 		graph[x][0]->team = NONE;
 
 		graph[x][0]->visited = false;
 	}
 }
 
-
 // get the index based on the wrestlers name
 int getIndex(vector<string> values, string source) {
-	for (int x = 0; x < values.size(); x++) {
+	for (int x = 0; x < (int)values.size(); x++) {
 		if (source == values[x]) {
 			return x;
 		}
@@ -46,14 +50,8 @@ int getIndex(vector<string> values, string source) {
 	return -1;
 }
 
-/*
-method to make connections within the graph
-since this is an undirected graph, we also need to update the connection for the second wrestler
-for the input we take the names of the wrestlers involved in the pair
-we utilize a hash function to quickly extract the node location/index
-we then create the pair by modifying each separate list
-*/
-void addPair(vector < vector <wrestler*> >& graph, string A, string B, vector <string> reference) {
+// make connections within the graph
+void addEdge(vector < vector <wrestler*> >& graph, string A, string B, vector <string> reference) {
 	int source = getIndex(reference, A);
 	int partner = getIndex(reference, B);
 
@@ -62,18 +60,7 @@ void addPair(vector < vector <wrestler*> >& graph, string A, string B, vector <s
 	graph[partner].push_back(graph[source][0]);
 }
 
-
-
-
-/*
-method to check if our network of wrestlers provides non conflicting rivalries
-The approach we will take is going to be modifying BFS
-we will begin at the first vertex, then set it as a baby face and update it to discovered
-we then check it's neighbors and update them to the opposite which will be having a heel team
-we continue this process until either we encounter a conflict or when all undiscovered vertices has been analyzed
-a conflict occurs if the current vertex is heel and has a connection to another heel vertex or vice versa
-basically if the neighbors have the same team as the predecessor then a conflict has been found
-*/
+// check if our graph of wrestlers can provide non conflicting rivalries
 void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	vector <string> babyFaces;
 	vector <string> heels;
@@ -81,12 +68,13 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	queue < vector <wrestler*> > list;
 
 	// analyze all the undiscovered vertices in our graph
-	for (int i = 0; i < graph.size(); i++) {
+	for (int i = 0; i < (int)graph.size(); i++) {
 		if (!graph[i][0]->visited) {
-			// we begin at the initial vertex, we also set the starting vertex to have the team of a babyface
+			// we begin at the initial vertex, we also set the starting vertex
+			// to have the team babyface, as per instructions
 			graph[i][0]->team = BABY;
 
-			// we also add it to our list of baby faces
+			// we also add it to our list of babyfaces
 			babyFaces.push_back(graph[i][0]->name);
 
 			// add it to our queue
@@ -99,7 +87,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 				list.pop();
 
 				// here we now check for the neighbors of this vertex
-				for (int x = 1; x < currentNode.size(); x++) {
+				for (int x = 1; x < (int)currentNode.size(); x++) {
 					// condition to check if the neighbor has been previously discovered
 					if (currentNode[x]->visited == false) {
 						// here is how we assign the teams
@@ -136,11 +124,11 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	// showcasing the result
 	cout << "Yes possible" << endl;
 	cout << "Babyfaces: ";
-	for (int x = 0; x < babyFaces.size(); x++) {
+	for (int x = 0; x < (int)babyFaces.size(); x++) {
 		cout << babyFaces[x] << " ";
 	}
 	cout << endl << "Heels: ";
-	for (int x = 0; x < heels.size(); x++) {
+	for (int x = 0; x < (int)heels.size(); x++) {
 		cout << heels[x] << " ";
 	}
 	cout << endl;
@@ -208,7 +196,7 @@ int main(int argc, char* argv[]) {
 			inFile >> b;
 
 			// making the connections for our graph
-			addPair(graph, a, b, names);
+			addEdge(graph, a, b, names);
 		}
 
 		bfs(graph, names);
