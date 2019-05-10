@@ -130,7 +130,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 	cout << endl;
 }
 
- method to showcase the graph layout
+// method to showcase the graph layout
 void viewGraph(vector < vector <wrestler*> > graph)
 {
 	for (int x = 0; x < graph.size(); x++)
