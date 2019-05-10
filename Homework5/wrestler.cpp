@@ -31,7 +31,7 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> namesL
 		graph[x].push_back(new wrestler);
 
 		// we assign the name to each node/vertex
-		graph[x][0]->name = values[x];
+		graph[x][0]->name = namesList[x];
 
 		// as a start each wrestler will not be assigned a team
 		graph[x][0]->team = NONE;
