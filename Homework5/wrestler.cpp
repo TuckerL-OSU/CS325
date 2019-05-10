@@ -198,6 +198,8 @@ int main(int argc, char* argv[]) {
 		bfs(graph, names);
 	}
 
+	viewGraph(graph);
+
 	inFile.close();
 
 	return 0;
