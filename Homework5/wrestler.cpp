@@ -6,19 +6,16 @@
 #include <sstream>
 using namespace std;
 
-enum Role {
+enum Team {
 	NONE,
 	BABY,
 	HEEL
 };
-//const string unkown = "unkown";
-//const string baby = "babyface";
-//const string heel = "heel";
 
 // struct to represent the vertices
 struct wrestler {
 	string name;
-	Role role;
+	Team team;
 	bool visited;
 };
 
@@ -31,8 +28,8 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> values
 		// we assign the name to each node/vertex
 		graph[x][0]->name = values[x];
 
-		// as a starter each wrestler will not be assigned a role
-		graph[x][0]->role = NONE;
+		// as a starter each wrestler will not be assigned a team
+		graph[x][0]->team = NONE;
 
 		graph[x][0]->visited = false;
 	}
@@ -72,10 +69,10 @@ void addPair(vector < vector <wrestler*> >& graph, string A, string B, vector <s
 method to check if our network of wrestlers provides non conflicting rivalries
 The approach we will take is going to be modifying BFS
 we will begin at the first vertex, then set it as a baby face and update it to discovered
-we then check it's neighbors and update them to the opposite which will be having a heel role
+we then check it's neighbors and update them to the opposite which will be having a heel team
 we continue this process until either we encounter a conflict or when all undiscovered vertices has been analyzed
 a conflict occurs if the current vertex is heel and has a connection to another heel vertex or vice versa
-basically if the neighbors have the same role as the predecessor then a conflict has been found
+basically if the neighbors have the same team as the predecessor then a conflict has been found
 */
 void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	vector <string> babyFaces;
@@ -86,8 +83,8 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 	// analyze all the undiscovered vertices in our graph
 	for (int i = 0; i < graph.size(); i++) {
 		if (!graph[i][0]->visited) {
-			// we begin at the initial vertex, we also set the starting vertex to have the role of a babyface
-			graph[i][0]->role = BABY;
+			// we begin at the initial vertex, we also set the starting vertex to have the team of a babyface
+			graph[i][0]->team = BABY;
 
 			// we also add it to our list of baby faces
 			babyFaces.push_back(graph[i][0]->name);
@@ -105,24 +102,24 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 				for (int x = 1; x < currentNode.size(); x++) {
 					// condition to check if the neighbor has been previously discovered
 					if (currentNode[x]->visited == false) {
-						// here is how we assign the roles
+						// here is how we assign the teams
 						/*
 						basically if the current wrestler is a babyface than its neighbors must be heels
-						we first check what role the neighbors have
-						if they are unknown, than set it to the opposite role from the current vertex
-						if they have the same role as the predecessor than we end the traversal because this signals a conflict
+						we first check what team the neighbors have
+						if they are unknown, than set it to the opposite team from the current vertex
+						if they have the same team as the predecessor than we end the traversal because this signals a conflict
 						*/
-						if (currentNode[x]->role == NONE && currentNode[0]->role == BABY) {
-							currentNode[x]->role = HEEL; // set the neighbor to heel if the predecessor is a babyface
+						if (currentNode[x]->team == NONE && currentNode[0]->team == BABY) {
+							currentNode[x]->team = HEEL; // set the neighbor to heel if the predecessor is a babyface
 
 							heels.push_back(currentNode[x]->name); // updating our list of heels
 						}
-						else if (currentNode[x]->role == NONE && currentNode[0]->role == HEEL) {
-							currentNode[x]->role = BABY; // set the neighbor to babyface if the predecessor is a heel
+						else if (currentNode[x]->team == NONE && currentNode[0]->team == HEEL) {
+							currentNode[x]->team = BABY; // set the neighbor to babyface if the predecessor is a heel
 
 							babyFaces.push_back(currentNode[x]->name);  // updating our list of babyfaces
 						}
-						else if (currentNode[x]->role == currentNode[0]->role) {
+						else if (currentNode[x]->team == currentNode[0]->team) {
 							// conflict found
 							cout << "Impossible" << endl;
 							return;
@@ -163,7 +160,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> reference) {
 //
 //		for (int y = 1; y < graph[x].size(); y++)
 //		{
-//			cout << graph[x][y]->name << " " << graph[x][y]->role << " " << graph[x][y]->visited << endl;
+//			cout << graph[x][y]->name << " " << graph[x][y]->team << " " << graph[x][y]->visited << endl;
 //		}
 //		cout << endl;
 //	}
