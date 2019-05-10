@@ -82,35 +82,35 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 
 			while (!list.empty()) {
 				// extract the current vertex from our queue
-				vector <wrestler*> currentNode = list.front();
-				currentNode[0]->visited = true;
+				vector <wrestler*> currentWrestler = list.front();
+				currentWrestler[0]->visited = true;
 				list.pop();
 
 				// here we now check for the neighbors of this vertex
-				for (int x = 1; x < (int)currentNode.size(); x++) {
+				for (int x = 1; x < (int)currentWrestler.size(); x++) {
 					// condition to check if the neighbor has been previously discovered
-					if (currentNode[x]->visited == false) {
+					if (currentWrestler[x]->visited == false) {
 						// assign the teams
 						// set the neighbor to heel if the predecessor is a babyface
-						if (currentNode[x]->team == NONE && currentNode[0]->team == BABY) {
-							currentNode[x]->team = HEEL;
+						if (currentWrestler[x]->team == NONE && currentWrestler[0]->team == BABY) {
+							currentWrestler[x]->team = HEEL;
 
-							heels.push_back(currentNode[x]->name);
+							heels.push_back(currentWrestler[x]->name);
 						}
 						// set the neighbor to babyface if the predecessor is a heel
-						else if (currentNode[x]->team == NONE && currentNode[0]->team == HEEL) {
-							currentNode[x]->team = BABY; 
+						else if (currentWrestler[x]->team == NONE && currentWrestler[0]->team == HEEL) {
+							currentWrestler[x]->team = BABY; 
 
-							babyFaces.push_back(currentNode[x]->name);
+							babyFaces.push_back(currentWrestler[x]->name);
 						}
 						// conflict found
-						else if (currentNode[x]->team == currentNode[0]->team) {
+						else if (currentWrestler[x]->team == currentWrestler[0]->team) {
 							cout << "No" << endl;
 							return;
 						}
 
 						// lastly we add the undiscovered neighboring vertex to our queue
-						list.push(graph[getIndex(namesList, currentNode[x]->name)]);
+						list.push(graph[getIndex(namesList, currentWrestler[x]->name)]);
 					}
 				}
 			}
@@ -167,12 +167,12 @@ int main(int argc, char* argv[]) {
 		// making the connections for our graph
 		for (int x = 0; x < edges; x++) {
 			// getting the vertices involved in the pair
-			string wrestler, rival;
-			inFile >> wrestler;
-			inFile >> rival;
+			string wrestlerName, rivalName;
+			inFile >> wrestlerName;
+			inFile >> rivalName;
 
 			// making the connections for our graph
-			addEdge(graph, wrestler, rival, names);
+			addEdge(graph, wrestlerName, rivalName, names);
 		}
 
 		bfs(graph, names);
