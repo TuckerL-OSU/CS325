@@ -41,9 +41,9 @@ void createVertices(vector < vector <wrestler*> >& graph, vector <string> namesL
 }
 
 // get the index based on the wrestlers name
-int getIndex(vector<string> values, string name) {
-	for (int x = 0; x < (int)values.size(); x++) {
-		if (name == values[x]) {
+int getIndex(string name, vector <string> namesList) {
+	for (int x = 0; x < (int)namesList.size(); x++) {
+		if (name == namesList[x]) {
 			return x;
 		}
 	}
@@ -52,8 +52,8 @@ int getIndex(vector<string> values, string name) {
 
 // make connections within the graph
 void addEdge(vector < vector <wrestler*> >& graph, string wrestlerName, string rivalName, vector <string> namesList) {
-	int wrestler = getIndex(namesList, wrestlerName);
-	int rival = getIndex(namesList, rivalName);
+	int wrestler = getIndex(wrestlerName, namesList);
+	int rival = getIndex(rivalName, namesList);
 
 	// creating the edges 
 	graph[wrestler].push_back(graph[rival][0]);
@@ -74,19 +74,19 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 			// to have the team babyface, as per instructions
 			graph[i][0]->team = BABY;
 
-			// we also add it to our list of babyfaces
+			// add it to list of babyfaces
 			babyFaces.push_back(graph[i][0]->name);
 
-			// add it to our queue
+			// add it to queue
 			list.push(graph[i]);
 
 			while (!list.empty()) {
-				// extract the current vertex from our queue
+				// extract the current vertex from queue
 				vector <wrestler*> currentWrestler = list.front();
 				currentWrestler[0]->visited = true;
 				list.pop();
 
-				// here we now check for the neighbors of this vertex
+				// here we check for the neighbors of this vertex
 				for (int x = 1; x < (int)currentWrestler.size(); x++) {
 					// condition to check if the neighbor has been previously discovered
 					if (currentWrestler[x]->visited == false) {
@@ -110,14 +110,14 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 						}
 
 						// lastly we add the undiscovered neighboring vertex to our queue
-						list.push(graph[getIndex(namesList, currentWrestler[x]->name)]);
+						list.push(graph[getIndex(currentWrestler[x]->name)], namesList);
 					}
 				}
 			}
 		}
 	}
 
-	// showcasing the result
+	// show the result
 	cout << "Yes" << endl;
 	cout << "Babyfaces: ";
 	for (int x = 0; x < (int)babyFaces.size(); x++) {
@@ -143,12 +143,12 @@ int main(int argc, char* argv[]) {
 		int size;
 		int edges;
 		string currentName;
-		vector <string> names;
+		vector <string> namesList;
 
 		// getting the number of vertices
 		inFile >> size;
 
-		// declaring our graph
+		// declare graph
 		vector < vector < wrestler*> > graph(size);
 
 		// storing the names
@@ -159,23 +159,23 @@ int main(int argc, char* argv[]) {
 		}
 
 		// creating the vertices for our graph
-		createVertices(graph, names);
+		createVertices(graph, namesList);
 
 		// getting the number of pairs/edge connections
 		inFile >> edges;
 
-		// making the connections for our graph
+		// making the connections for the graph
 		for (int x = 0; x < edges; x++) {
 			// getting the vertices involved in the pair
 			string wrestlerName, rivalName;
 			inFile >> wrestlerName;
 			inFile >> rivalName;
 
-			// making the connections for our graph
-			addEdge(graph, wrestlerName, rivalName, names);
+			// make the connections for the graph
+			addEdge(graph, wrestlerName, rivalName, namesList);
 		}
 
-		bfs(graph, names);
+		bfs(graph, namesList);
 	}
 
 	inFile.close();
