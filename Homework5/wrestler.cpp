@@ -110,7 +110,7 @@ void bfs(vector < vector <wrestler*> >& graph, vector <string> namesList) {
 						}
 
 						// lastly we add the undiscovered neighboring vertex to our queue
-						list.push(graph[getIndex(currentWrestler[x]->name)], namesList);
+						list.push(graph[getIndex(currentWrestler[x]->name), namesList]);
 					}
 				}
 			}
@@ -155,7 +155,7 @@ int main(int argc, char* argv[]) {
 		for (int x = 0; x < size; x++) {
 			inFile >> currentName;
 
-			names.push_back(currentName);
+			namesList.push_back(currentName);
 		}
 
 		// creating the vertices for our graph
